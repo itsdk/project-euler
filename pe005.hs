@@ -8,4 +8,4 @@ What is the smallest positive number that is evenly divisible by all of the numb
 -}
 
 main = do
-	print $ foldl1 lcm [1..20]
+    print $ foldl1 lcm [1..20]
