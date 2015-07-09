@@ -1,0 +1,16 @@
+# ignore everything, so we can make a whitelist 
+*
+!.gitignore
+
+# include source files for:
+
+# C
+!*.c
+!*.h
+
+# Haskell
+!*.hs
+
+# Python
+!*.py
+
