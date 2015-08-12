@@ -1,6 +1,9 @@
 # ignore everything, so we can make a whitelist 
 *
+
+# include miscellaneous files:
 !.gitignore
+!*.txt
 
 # include source files for:
 
