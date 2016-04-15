@@ -27,7 +27,6 @@
 % the Nth triangle number has over X divisors
 triangleWithDivisors(X) :- triangleWithDivisors(1,X).
 triangleWithDivisors(N,X) :- 
-  X > 0,
   triangleNumber(N,T),
   factorsOf(T,List),
   length(List,L),
@@ -38,16 +37,15 @@ triangleWithDivisors(N,X) :-
       triangleWithDivisors(N1,X).
 
 % Nth triangle number is X
+triangleNumber(N,_) :- N=<0, !, false.
 triangleNumber(1,1).
 triangleNumber(N,X) :-
-  N > 0,
   M is N - 1,
   triangleNumber(M,Y),
   X is N + Y.
 
 % get a List of the factors of N
-factorsOf(N,List) :-
-  N > 0,
-  setof(B, (between(1,N,B), N mod B =:= 0 ), List).
+factorsOf(0,_) :- !, false.
+factorsOf(N,List) :- setof(B, (between(1,N,B), N mod B =:= 0 ), List).
 
 
