@@ -38,11 +38,8 @@ triangleWithDivisors(N,X) :-
 
 % Nth triangle number is X
 triangleNumber(N,_) :- N=<0, !, false.
-triangleNumber(1,1).
 triangleNumber(N,X) :-
-  M is N - 1,
-  triangleNumber(M,Y),
-  X is N + Y.
+  X is N*(N+1)/2.
 
 % get a List of the factors of N
 factorsOf(0,_) :- !, false.
