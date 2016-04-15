@@ -28,9 +28,8 @@
 triangleWithDivisors(X) :- triangleWithDivisors(1,X).
 triangleWithDivisors(N,X) :- 
   triangleNumber(N,T),
-  factorsOf(T,List),
-  length(List,L),
-  L > X -> 
+  numFactors(T,F),
+  F > X -> 
     write(N), write("th triangle number is "), write(T), write("."), nl,
     write("It is the first triangle number to have over "), write(X), write(" divisors."), !
       ; N1 is N + 1, 
@@ -38,11 +37,32 @@ triangleWithDivisors(N,X) :-
 
 % Nth triangle number is X
 triangleNumber(N,_) :- N=<0, !, false.
-triangleNumber(N,X) :-
-  X is N*(N+1)/2.
+triangleNumber(N,X) :- X is N*(N+1)/2.
 
-% get a List of the factors of N
-factorsOf(0,_) :- !, false.
-factorsOf(N,List) :- setof(B, (between(1,N,B), N mod B =:= 0 ), List).
+% X is the number of factors of N
+numFactors(N,X) :- N=<0, !, false.
+numFactors(N,X) :-
+  F is floor(N ** 0.5),
+  N =:= (F ** 2),
+  numDivisors(N,F,D,0),
+  X is D*2-1.
+numFactors(N,X) :-
+  F is floor(N ** 0.5),
+  N > (F ** 2),
+  numDivisors(N,F,D,0),
+  X is D*2.
 
+% N has Dcount divisors
+numDivisors(_,1,Dcount,Count) :- Dcount is Count + 1,!. % 1 is a divisor
+numDivisors(N,D,Dcount,Count) :-
+  N mod D =:= 0,
+  NewCount is Count + 1,
+  NewD is D - 1,
+  numDivisors(N,NewD,Dcount,NewCount).
+numDivisors(N,D,Dcount,Count) :-
+  N mod D =\= 0,
+  NewD is D - 1,
+  numDivisors(N,NewD,Dcount,Count).
+  
+        
 
