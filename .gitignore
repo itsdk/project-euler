@@ -1,31 +1,12 @@
-# ignore everything, so we can make a whitelist 
-*
+*.class
 
-# include miscellaneous files:
-!.gitignore
-!*.txt
+bin/
+*.swp
+.settings/
 
-# include source files for:
+# Eclipse Core
+.project
 
-# C
-!*.c
-!*.h
-
-# Haskell
-!*.hs
-
-# Java
-!Java/src/main/java/*
-!Java/src/test/test/*
-!*.java
-
-# Prolog
-!*.pl
-
-# Python
-!*.py
-
-# Racket
-!*.rkt
-
+# JDT-specific (Eclipse Java Development Tools)
+.classpath
 
