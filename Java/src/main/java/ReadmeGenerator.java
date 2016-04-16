@@ -70,7 +70,7 @@ public class ReadmeGenerator {
         	out.println("solutions to problems from ProjectEuler.net");
         	out.println("\nThis README.md was generated with "
         			+ "[ReadmeGenerator.java]"
-        			+ "(https://github.com/pepers/project-euler/blob/master/Java/src/main/java/ReadmeGenerator.java)");
+        			+ "(https://github.com/pepers/project-euler/blob/master/java/src/main/java/ReadmeGenerator.java)");
         	out.println("\n### Table of Solutions:");
         	out.println(generateTable());
         	System.out.print("\nTable of solutions has been generated.");
