@@ -15,8 +15,9 @@
 !*.hs
 
 # Java
+!Java/src/main/java/*
+!Java/src/test/test/*
 !*.java
-!Java/
 
 # Prolog
 !*.pl
