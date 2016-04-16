@@ -1,8 +1,22 @@
 package main.java;
 
+/*
+ * Generates a markdown README.md for this Project Euler repository, which
+ * includes a list with links to solutions to problems for each language used.
+ * 
+ * change:
+ * - repoLink     = link of this repo, including the branch
+ *                  ie. "https://github.com/pepers/project-euler/blob/master"
+ * - allowableExt = extensions of solution source code files 
+ *                  (order determines titles in table)
+ * - exclude      = names of files to exclude which would otherwise be included because
+ *                  they have file extensions in allowableExt
+ */
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
@@ -10,12 +24,9 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
-/*
- * - generates a markdown README.md for this Project Euler repository 
- * - includes list with links to solutions to problems for each language used
- */
-
 public class ReadmeGenerator {
+	
+	private final static String repoLink = "https://github.com/pepers/project-euler/blob/master";
 	
 	// file extensions to allow
 	private final static String[] allowableExt = {".c", 
@@ -39,7 +50,7 @@ public class ReadmeGenerator {
 	
 	
 	public static void main(String[] args) {
-		createReadme(); // create the readme file if non-existent
+		File readme = createReadme(); // create the readme file if non-existent
 		
 		File curDir = new File("..");
         getAllProblems(curDir); // get all the problem files
@@ -54,12 +65,59 @@ public class ReadmeGenerator {
         	problemSet.add(getNum(f));
         }
         
+        // fill readme
+        try (PrintWriter out = new PrintWriter(readme)) {
+        	out.println("# project-euler");
+        	out.println("solutions to problems from ProjectEuler.net");
+        	out.println("\n### Table of Solutions:");
+        	out.println(generateTable());
+        	System.out.print("\nTable of solutions has been generated.");
+        } catch (FileNotFoundException e) {
+        	e.printStackTrace();
+        }        
     }
+	
+	/*
+	 * generate solution files table in markdown
+	 */
+	private static String generateTable() {
+		String titleRow = "| # | ";
+		String headerRow = "\n| --- | ";
+		String problems = "";
+		
+		// fill in title and header
+		for (String t : allowableExt) {
+			titleRow += t + " | ";
+			headerRow += "--- | ";
+		}
+		
+		// fill in rows of table
+		for (Integer i : problemSet) {
+			problems += "\n| " + i + " | ";
+			for (String ext : allowableExt) {
+				boolean noSolution = true;
+				for (File f : allowList) {
+					// solution file found
+					if ((getNum(f) == i) && (getExt(f).equals(ext))){
+						problems += getLinkMD(f) + " | "; 
+						noSolution = false;
+						break;
+					}
+				}
+				// no solution file found
+				if (noSolution) {
+					problems += " | ";
+				}
+			}
+		}
+	
+		return titleRow + headerRow + problems;
+	}
 	
 	/*
 	 * get problem number from file name
 	 */
-	public static int getNum(File f) {
+	private static int getNum(File f) {
 		int period = f.getName().indexOf(".");
 		return Integer.parseInt(f.getName().substring(period-3, period));
 		
@@ -68,17 +126,28 @@ public class ReadmeGenerator {
 	/*
 	 * get file extension (with period) from file name
 	 */
-	public static String getExt(File f) {
+	private static String getExt(File f) {
 		int period = f.getName().indexOf(".");
 		return f.getName().substring(period);
 	}
 	
 	/*
+	 * get the markdown for a link to the file
+	 */
+	private static String getLinkMD(File f) {
+		String name = "[" + f.getName() + "]";
+		String path = f.getPath().substring(2).replace("\\", "/");
+		String link = repoLink + path;
+		return name + "(" + link + ")";
+	}
+	
+	/*
 	 * create new readme
 	 */
-	public static void createReadme() {
+	private static File createReadme() {
+		File file = null;
 		try {
-			File file = new File("../README.md");
+			file = new File("../README.md");
 			
 			if (file.createNewFile()) {
 				System.out.println("README.md created.");
@@ -89,6 +158,7 @@ public class ReadmeGenerator {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		return file;
 	}
 	
 	/*
