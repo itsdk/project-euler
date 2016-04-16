@@ -7,7 +7,7 @@ package main.java;
  * change:
  * - repoLink     = link of this repo, including the branch
  *                  ie. "https://github.com/pepers/project-euler/blob/master"
- * - allowableExt = extensions of solution source code files 
+ * - allowableExt = extensions of solution source code files, and their language names
  *                  (order determines titles in table)
  * - exclude      = names of files to exclude which would otherwise be included because
  *                  they have file extensions in allowableExt
@@ -29,13 +29,12 @@ public class ReadmeGenerator {
 	private final static String repoLink = "https://github.com/pepers/project-euler/blob/master";
 	
 	// file extensions to allow
-	private final static String[] allowableExt = {".c", 
-												".h", 
-												".hs", 
-												".java", 
-												".pl", 
-												".py", 
-												".rkt" };
+	private final static String[][] allowableExt = {{".c", "C" },
+			                                       {".hs", "Haskell" },
+			                                       {".java", "Java" },
+			                                       {".pl", "Prolog" },
+			                                       {".py", "Python" },
+			                                       {".rkt", "Racket" }};
 	
 	// files to exclude (which would be allowed by their extension otherwise)
 	private final static String[] exclude = { "Problem.java", 
@@ -69,6 +68,9 @@ public class ReadmeGenerator {
         try (PrintWriter out = new PrintWriter(readme)) {
         	out.println("# project-euler");
         	out.println("solutions to problems from ProjectEuler.net");
+        	out.println("\nThis README.md was generated with "
+        			+ "[ReadmeGenerator.java]"
+        			+ "(https://github.com/pepers/project-euler/blob/master/Java/src/main/java/ReadmeGenerator.java)");
         	out.println("\n### Table of Solutions:");
         	out.println(generateTable());
         	System.out.print("\nTable of solutions has been generated.");
@@ -86,19 +88,19 @@ public class ReadmeGenerator {
 		String problems = "";
 		
 		// fill in title and header
-		for (String t : allowableExt) {
-			titleRow += t + " | ";
+		for (String[] t : allowableExt) {
+			titleRow += t[1] + " | ";
 			headerRow += "--- | ";
 		}
 		
 		// fill in rows of table
 		for (Integer i : problemSet) {
 			problems += "\n| " + i + " | ";
-			for (String ext : allowableExt) {
+			for (String[] ext : allowableExt) {
 				boolean noSolution = true;
 				for (File f : allowList) {
 					// solution file found
-					if ((getNum(f) == i) && (getExt(f).equals(ext))){
+					if ((getNum(f) == i) && (getExt(f).equals(ext[0]))){
 						problems += getLinkMD(f) + " | "; 
 						noSolution = false;
 						break;
@@ -175,8 +177,8 @@ public class ReadmeGenerator {
         Iterator<File> iterator = files.iterator();
         while (iterator.hasNext()) {
             File currentFile = iterator.next();
-            for (String ext : allowableExt) {            	
-            	if (currentFile.getName().endsWith(ext)) {
+            for (String[] ext : allowableExt) {            	
+            	if (currentFile.getName().endsWith(ext[0])) {
             		boolean excluded = false;
             		for (String e : exclude) {
             			if (currentFile.getName().equals(e)) {
