@@ -7,7 +7,7 @@ This README.md was generated with [ReadmeGenerator.java](https://github.com/pepe
 | # | C | Haskell | Java | Prolog | Python | Racket | 
 | --- | --- | --- | --- | --- | --- | --- | 
 | 1 |  |  | [P001.java](https://github.com/pepers/project-euler/blob/master/java/src/main/java/P001.java) |  | [pe001.py](https://github.com/pepers/project-euler/blob/master/python/pe001.py) |  | 
-| 2 |  |  |  |  | [pe002.py](https://github.com/pepers/project-euler/blob/master/python/pe002.py) |  | 
+| 2 |  |  | [P002.java](https://github.com/pepers/project-euler/blob/master/java/src/main/java/P002.java) |  | [pe002.py](https://github.com/pepers/project-euler/blob/master/python/pe002.py) |  | 
 | 3 |  |  |  |  | [pe003.py](https://github.com/pepers/project-euler/blob/master/python/pe003.py) |  | 
 | 4 | [pe004.c](https://github.com/pepers/project-euler/blob/master/c/pe004.c) |  |  |  |  |  | 
 | 5 |  | [pe005.hs](https://github.com/pepers/project-euler/blob/master/haskell/pe005.hs) |  |  |  |  | 
