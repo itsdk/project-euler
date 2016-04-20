@@ -4,7 +4,7 @@ package main.java;
  * all problems (P001, P002, etc.) will extend this
  */
 
-public abstract class Problem {
+public abstract class Problem extends Library {
 	
 	public abstract String solve();	// return solution to the problem
 	

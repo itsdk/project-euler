@@ -29,17 +29,20 @@ public class ReadmeGenerator {
 	private final static String repoLink = "https://github.com/pepers/project-euler/blob/master";
 	
 	// file extensions to allow
-	private final static String[][] allowableExt = {{".c", "C" },
-			                                       {".hs", "Haskell" },
-			                                       {".java", "Java" },
-			                                       {".pl", "Prolog" },
-			                                       {".py", "Python" },
-			                                       {".rkt", "Racket" }};
+	private final static String[][] allowableExt = {
+			{".c", "C" },
+			{".hs", "Haskell" },
+			{".java", "Java" },
+			{".pl", "Prolog" },
+			{".py", "Python" },
+			{".rkt", "Racket" }};
 	
 	// files to exclude (which would be allowed by their extension otherwise)
-	private final static String[] exclude = { "Problem.java", 
-											"ReadmeGenerator.java", 
-											"ProblemsTest.java" };
+	private final static String[] exclude = {
+			"Library.java",
+			"Problem.java", 
+			"ProblemsTest.java",
+			"ReadmeGenerator.java"};
 	
 	// final list of problem files
 	private static List<File> allowList = new ArrayList<File>();
@@ -77,7 +80,7 @@ public class ReadmeGenerator {
         } catch (FileNotFoundException e) {
         	e.printStackTrace();
         }        
-    }
+	}
 	
 	/*
 	 * generate solution files table in markdown

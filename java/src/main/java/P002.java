@@ -42,13 +42,4 @@ public class P002 extends Problem {
 				
 		return Integer.toString(evenFibSum);
 	}
-	
-	/*
-	 * estimate how many fibonacci numbers <= value, using Binet's formula
-	 */
-	public double numberOfFibonaccis(double value) {
-		double phi = (1 + Math.sqrt(5))/2;
-		return 1 + (Math.log((Math.sqrt(5))*(value+0.5)))/(Math.log(phi));
-	}
-
 }
