@@ -5,9 +5,7 @@ package test.java;
  */
 
 import static org.junit.Assert.*;
-
 import org.junit.Test;
-
 import main.java.*; // problems (P001, P002, etc.)
 
 public class ProblemsTest {
@@ -32,6 +30,13 @@ public class ProblemsTest {
 	public void testP003() {
 		p = new P003();
 		assertEquals(p.solve(), "6857");
+		p.time();	
+	}
+	
+	@Test
+	public void testP004() {
+		p = new P004();
+		assertEquals(p.solve(), "906609");
 		p.time();	
 	}
 

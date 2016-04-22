@@ -40,6 +40,7 @@ public class ReadmeGenerator {
 	// files to exclude (which would be allowed by their extension otherwise)
 	private final static String[] exclude = {
 			"Library.java",
+			"LibraryTest.java",
 			"Problem.java", 
 			"ProblemsTest.java",
 			"ReadmeGenerator.java"};

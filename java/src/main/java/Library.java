@@ -26,6 +26,20 @@ public abstract class Library {
 	}
 	
 	/*
+	 * checks if a String is a palindrome or not
+	 * (reads the same forwards and backwards)
+	 */
+	protected boolean isPalindrome(String s) {
+		for (int i=0; i<s.length()/2; i++) {
+			if (Character.toLowerCase(s.charAt(i)) != 
+					Character.toLowerCase(s.charAt(s.length()-1-i))) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	/*
 	 * is a number a prime number or not?
 	 * through trial division
 	 */
