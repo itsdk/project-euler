@@ -10,7 +10,7 @@ This README.md was generated with [ReadmeGenerator.java](https://github.com/pepe
 | 2 |  |  | [P002.java](https://github.com/pepers/project-euler/blob/master/java/src/main/java/P002.java) |  | [pe002.py](https://github.com/pepers/project-euler/blob/master/python/pe002.py) |  | 
 | 3 |  |  | [P003.java](https://github.com/pepers/project-euler/blob/master/java/src/main/java/P003.java) |  | [pe003.py](https://github.com/pepers/project-euler/blob/master/python/pe003.py) |  | 
 | 4 | [pe004.c](https://github.com/pepers/project-euler/blob/master/c/pe004.c) |  | [P004.java](https://github.com/pepers/project-euler/blob/master/java/src/main/java/P004.java) |  |  |  | 
-| 5 |  | [pe005.hs](https://github.com/pepers/project-euler/blob/master/haskell/pe005.hs) |  |  |  |  | 
+| 5 |  | [pe005.hs](https://github.com/pepers/project-euler/blob/master/haskell/pe005.hs) | [P005.java](https://github.com/pepers/project-euler/blob/master/java/src/main/java/P005.java) |  |  |  | 
 | 6 |  |  |  |  | [pe006.py](https://github.com/pepers/project-euler/blob/master/python/pe006.py) |  | 
 | 7 |  | [pe007.hs](https://github.com/pepers/project-euler/blob/master/haskell/pe007.hs) |  |  |  |  | 
 | 8 |  | [pe008.hs](https://github.com/pepers/project-euler/blob/master/haskell/pe008.hs) |  |  |  |  | 

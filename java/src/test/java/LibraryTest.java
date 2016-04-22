@@ -10,6 +10,11 @@ import main.java.Library;
 
 public class LibraryTest extends Library{
 	
+	@Test
+	public void gcdTest() {
+		assertEquals(gcd(8,12), 4); // 4 is greatest number that divides both 8 and 12 with no remainder
+	}
+	
 	@Test 
 	public void isPalindromeTest() { 
 		assertTrue(isPalindrome("racecar"));  // odd number of characters
@@ -20,5 +25,10 @@ public class LibraryTest extends Library{
 		
 		assertFalse(isPalindrome("matthew")); // not a palindrome
 		assertFalse(isPalindrome("1234567890"));
+	}
+	
+	@Test
+	public void lcmTest() {
+		assertEquals(lcm(10), 2520); // given in Project Euler problem#5's question
 	}
 }

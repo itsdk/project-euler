@@ -9,6 +9,18 @@ import java.util.TreeSet;
 public abstract class Library {
 	
 	/*
+	 * greatest common divisor of two numbers
+	 * (returns largest integer that divides both a and b without a remainder)
+	 */
+	protected long gcd(long a, long b) {
+		if (b == 0) {
+			return a;
+		} else {
+			return gcd(b, a%b);
+		}
+	}
+	
+	/*
 	 * get the factors of a number
 	 */
 	protected TreeSet<Long> getFactors(long n) {
@@ -51,6 +63,18 @@ public abstract class Library {
 			if (n % i == 0) return false;          // not prime if multiple of a number
 		}
 		return true;
+	}
+	
+	/*
+	 * least common multiple of the numbers [1,n]
+	 * (returns smallest integer divisible by all numbers [1,n])
+	 */
+	protected long lcm(long n) {
+		long lcm = 1;
+		for (long i=2; i<=n; i++) {
+	    	lcm *= i/gcd(i,lcm);
+		}
+		return lcm;	
 	}
 	
 	/*
