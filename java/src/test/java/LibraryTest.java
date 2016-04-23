@@ -28,7 +28,29 @@ public class LibraryTest extends Library{
 	}
 	
 	@Test
+	public void isPrime() {
+		assertFalse(isPrime(-1));
+		assertFalse(isPrime(0));
+		assertFalse(isPrime(1));
+		assertTrue(isPrime(2));
+		assertTrue(isPrime(3));
+		assertFalse(isPrime(4));
+		assertTrue(isPrime(5));
+		assertTrue(isPrime(787));
+	}
+	
+	@Test
 	public void lcmTest() {
 		assertEquals(lcm(10), 2520); // given in Project Euler problem#5's question
+	}
+	
+	@Test
+	public void squareOfSum() {
+		assertEquals(squareOfSum(1,10), 3025); // (1 + 2 + ... + 10)^2 = 55^2 = 3025
+	}
+	
+	@Test
+	public void sumOfSquares() {
+		assertEquals(sumOfSquares(1,10), 385); // 1^2 + 2^2 + ... + 10^2 = 385
 	}
 }

@@ -84,4 +84,28 @@ public abstract class Library {
 		double phi = (1 + Math.sqrt(5))/2;
 		return 1 + (Math.log((Math.sqrt(5))*(value+0.5)))/(Math.log(phi));
 	}
+	
+	/*
+	 * square of the sum of the numbers [a,b]
+	 * eg: [(a) + (a+1) + (a+2) + ... + (b-2) + (b-1) + (b)]^2
+	 */
+	protected long squareOfSum(int a, int b) {
+		long sum = 0;
+		for (int i=a; i<b+1; i++) {
+			sum += i;
+		}
+		return sum*sum;
+	}
+	
+	/*
+	 * sum of the squares of the numbers [a,b]
+	 * eg: (a)^2 + (a-1)^2 + (a-2)^2 + ... + (b-2)^2 + (b-1)^2 + (b)^2
+	 */
+	protected long sumOfSquares(int a, int b) {
+		long sum = 0;
+		for (int i=a; i<b+1; i++) {
+			sum += i*i;
+		}
+		return sum;
+	}
 }
