@@ -38,6 +38,22 @@ public abstract class Library {
 	}
 	
 	/*
+	 * get the nth prime
+	 */
+	protected long getPrime(int n) {
+		if (n<1) { return 0; } 
+		int numPrimes = 0; // number of primes so far
+		long prime = 1;
+		while (numPrimes < n) {
+			prime++;
+			if (isPrime(prime)) {
+				numPrimes++;
+			}
+		}		
+		return prime;
+	}
+	
+	/*
 	 * checks if a String is a palindrome or not
 	 * (reads the same forwards and backwards)
 	 */

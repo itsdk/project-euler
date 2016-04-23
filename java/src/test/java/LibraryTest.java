@@ -15,6 +15,14 @@ public class LibraryTest extends Library{
 		assertEquals(gcd(8,12), 4); // 4 is greatest number that divides both 8 and 12 with no remainder
 	}
 	
+	@Test
+	public void getPrimeTest() {
+		assertEquals(getPrime(-1), 0); // invalid n=-1
+		assertEquals(getPrime(0), 0);  // invalid n=0
+		assertEquals(getPrime(1), 2);  // first prime = 2
+		assertEquals(getPrime(6), 13); // sixth prime = 13
+	}
+	
 	@Test 
 	public void isPalindromeTest() { 
 		assertTrue(isPalindrome("racecar"));  // odd number of characters
