@@ -5,6 +5,7 @@ package main.java;
  */
 
 import java.util.TreeSet;
+import java.util.ArrayList;
 
 public abstract class Library {
 	
@@ -51,6 +52,42 @@ public abstract class Library {
 			}
 		}		
 		return prime;
+	}
+	
+	/*
+	 * get all the prime numbers below a value (n),
+	 * using Sieve of Eratosthenes
+	 */
+	protected ArrayList<Integer> getPrimesBelow(int n) {
+		ArrayList<Integer> primes = new ArrayList<Integer>(); 
+		if (n<=2) { return primes; } // no primes below 2
+		
+		boolean[] sieve = new boolean[n]; // false = prime, true = composite
+		sieve[0] = true;
+		sieve[1] = true; 
+		sieve[2] = false; // prime
+
+		// sieve out even numbers
+		for(int i=4; i<n; i+=2) { 
+			sieve[i] = true; 
+		}
+
+		int limit = (int)Math.sqrt(n)+1;
+		for(int i=3; i<limit; i+=2) { // iterate through odd numbers
+			if(!sieve[i]) { // if prime
+				for(int j=i*i; j<n; j+=i) { // sieve out multiples of i
+					sieve[j] = true; 
+				}
+			}
+		}
+		
+		// get primes as list
+		for (int i=0; i<sieve.length; i++) {
+			if (!sieve[i]) {
+				primes.add(i);
+			}
+		}
+		return primes;
 	}
 	
 	/*

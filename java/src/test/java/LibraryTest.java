@@ -6,6 +6,8 @@ package test.java;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
+import java.util.Arrays;
+import java.util.ArrayList;
 import main.java.Library;
 
 public class LibraryTest extends Library{
@@ -21,6 +23,12 @@ public class LibraryTest extends Library{
 		assertEquals(getPrime(0), 0);  // invalid n=0
 		assertEquals(getPrime(1), 2);  // first prime = 2
 		assertEquals(getPrime(6), 13); // sixth prime = 13
+	}
+	
+	@Test
+	public void getPrimesBelowTest() {
+		// prime numbers below 10 are; 2, 3, 5, and 7
+		assertEquals(getPrimesBelow(10), new ArrayList<Integer>(Arrays.asList(2,3,5,7)));
 	}
 	
 	@Test 
