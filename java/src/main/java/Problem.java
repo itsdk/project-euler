@@ -13,9 +13,10 @@ public abstract class Problem extends Library {
 	 */
 	public final long time() {
 		long startTime = System.nanoTime();
-		solve();
+		String solution = solve();
 		long elapsedTime = System.nanoTime() - startTime;
-		System.out.println(this.getClass().getSimpleName() + " time: " + elapsedTime + " nanoseconds");
+		System.out.printf("%s \t Time: %fs \t Solution: %s\n", 
+				this.getClass().getSimpleName(), elapsedTime*1E-9, solution);
 		return elapsedTime;
 	}
 }
