@@ -91,6 +91,16 @@ public abstract class Library {
 	}
 	
 	/*
+	 * get the nth triangular number
+	 * = 1 + 2 + 3 + ... + (n-2) + (n-1) + n
+	 * = (n(n+1))/2
+	 */
+	protected long getTriangularNumber(long n) {
+		if (n<1) { return 0L; }
+		return (n*(n+1))/2;
+	}
+	
+	/*
 	 * checks if a String is a palindrome or not
 	 * (reads the same forwards and backwards)
 	 */

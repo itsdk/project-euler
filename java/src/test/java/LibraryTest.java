@@ -31,6 +31,12 @@ public class LibraryTest extends Library{
 		assertEquals(getPrimesBelow(10), new ArrayList<Integer>(Arrays.asList(2,3,5,7)));
 	}
 	
+	@Test
+	public void getTriangularNumber() {
+		assertEquals(getTriangularNumber(0L), 0L);
+		assertEquals(getTriangularNumber(7L), 28L); // 1+2+3+4+5+6+7=28
+	}
+	
 	@Test 
 	public void isPalindromeTest() { 
 		assertTrue(isPalindrome("racecar"));  // odd number of characters
