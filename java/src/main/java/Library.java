@@ -141,6 +141,17 @@ public abstract class Library {
 	}
 	
 	/*
+	 * next number in Collatz Chain
+	 */
+	protected long nextCollatz(long n) {
+		if (n%2 == 0) { // n is even
+			return n/2;
+		} else {        // n is odd
+			return (3*n)+1;
+		}
+	}
+	
+	/*
 	 * estimate how many fibonacci numbers <= value, using Binet's formula
 	 */
 	protected double numberOfFibonaccis(double value) {

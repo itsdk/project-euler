@@ -67,6 +67,20 @@ public class LibraryTest extends Library{
 	}
 	
 	@Test
+	public void nextCollatzTest() {
+		// test Collatz Chain: 13 -> 40 -> 20 -> 10 -> 5 -> 16 -> 8 -> 4 -> 2 -> 1:
+		assertEquals(nextCollatz(13), 40);
+		assertEquals(nextCollatz(40), 20);
+		assertEquals(nextCollatz(20), 10);
+		assertEquals(nextCollatz(10), 5);
+		assertEquals(nextCollatz(5), 16);
+		assertEquals(nextCollatz(16), 8);
+		assertEquals(nextCollatz(8), 4);
+		assertEquals(nextCollatz(4), 2);
+		assertEquals(nextCollatz(2), 1);
+	}
+	
+	@Test
 	public void squareOfSum() {
 		assertEquals(squareOfSum(1,10), 3025); // (1 + 2 + ... + 10)^2 = 55^2 = 3025
 	}
