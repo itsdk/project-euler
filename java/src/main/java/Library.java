@@ -10,6 +10,22 @@ import java.util.ArrayList;
 public abstract class Library {
 	
 	/*
+	 * Binomial Coefficient in combinatorics:
+	 * C(n,k) = "n choose k" = n!/(k!(n-k)!)
+	 */
+	protected long binomialCoefficient(int n, int k) {
+		long coefficient = 1;
+		k = Math.min(k, n-k); // C(n,k) == C(n,n-k) 
+		
+		// using multiplicative formula for binomial coefficient:
+		for (int i=1; i<=k; i++) {
+			coefficient *= (n+1-i);
+			coefficient /= i;
+		}		
+		return coefficient;
+	}
+	
+	/*
 	 * greatest common divisor of two numbers
 	 * (returns largest integer that divides both a and b without a remainder)
 	 */

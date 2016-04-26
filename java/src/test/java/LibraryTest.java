@@ -13,6 +13,20 @@ import main.java.Library;
 public class LibraryTest extends Library{
 	
 	@Test
+	public void binomialCoefficientTest() {
+		// 8th row of Pascal's Triangle:
+		assertEquals(binomialCoefficient(8,0), 1L); 
+		assertEquals(binomialCoefficient(8,1), 8L); 
+		assertEquals(binomialCoefficient(8,2), 28L); 
+		assertEquals(binomialCoefficient(8,3), 56L); 
+		assertEquals(binomialCoefficient(8,4), 70L); 
+		assertEquals(binomialCoefficient(8,5), 56L); 
+		assertEquals(binomialCoefficient(8,6), 28L); 
+		assertEquals(binomialCoefficient(8,7), 8L); 
+		assertEquals(binomialCoefficient(8,8), 1L); 
+	}
+	
+	@Test
 	public void gcdTest() {
 		assertEquals(gcd(8,12), 4); // 4 is greatest number that divides both 8 and 12 with no remainder
 	}
