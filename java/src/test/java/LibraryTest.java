@@ -96,6 +96,20 @@ public class LibraryTest extends Library{
 	}
 	
 	@Test
+	public void numberToWordsTest() {
+		assertEquals(numberToWords(1001), ""); // >1000 not implemented
+		assertEquals(numberToWords(-1), "negativeone");
+		assertEquals(numberToWords(1), "one");
+		assertEquals(numberToWords(12), "twelve");
+		assertEquals(numberToWords(30), "thirty");
+		assertEquals(numberToWords(35), "thirtyfive");
+		assertEquals(numberToWords(600), "sixhundred");
+		assertEquals(numberToWords(704), "sevenhundredandfour");
+		assertEquals(numberToWords(787), "sevenhundredandeightyseven");
+		assertEquals(numberToWords(1000), "onethousand");
+	}
+	
+	@Test
 	public void squareOfSumTest() {
 		assertEquals(squareOfSum(1,10), 3025); // (1 + 2 + ... + 10)^2 = 55^2 = 3025
 	}

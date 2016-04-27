@@ -177,6 +177,45 @@ public abstract class Library {
 	}
 	
 	/*
+	 * returns the word representation of a number in the range [-1000,1000]
+	 */
+	protected String numberToWords(int n) {
+		String words = "";
+		if (n>1000) { return words; } // not yet implemented
+		
+		if (n < 0) {
+			n = Math.abs(n);
+			words += "negative";
+		} else if (n == 0) {
+			return "zero";
+		} else if (n == 1000) {
+			return "onethousand";
+		}
+		
+		String[] onesAndTeens = {"", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", 
+				"ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"};
+		String[] tens = {"", "ten", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"};
+		
+		while (n != 0) {
+			if (n < 20) {
+				words += onesAndTeens[n % 20];
+				break;
+			} else if (n < 100) {
+				words += tens[n / 10];
+				n %= 10;
+			} else if (n < 1000) {
+				words += onesAndTeens[n / 100] + "hundred";
+				if (n % 100 != 0) {
+					words += "and";
+				}
+				n %= 100;
+			} 
+		}
+		
+		return words;
+	}
+	
+	/*
 	 * square of the sum of the numbers [a,b]
 	 * eg: [(a) + (a+1) + (a+2) + ... + (b-2) + (b-1) + (b)]^2
 	 */
@@ -187,7 +226,7 @@ public abstract class Library {
 		}
 		return sum*sum;
 	}
-	
+		
 	/*
 	 * add together the digits of a number n,
 	 * ignore's negative sign of negative numbers
@@ -198,7 +237,7 @@ public abstract class Library {
 		long sum = 0;
 		while (!n.equals(BigInteger.ZERO)) {
 			sum += n.mod(BigInteger.TEN).longValue(); // add last digit (in one's place)
-			n = n.divide(BigInteger.TEN);       // cut off last digit
+			n = n.divide(BigInteger.TEN);             // cut off last digit
 		}
 		return sum;
 	}
