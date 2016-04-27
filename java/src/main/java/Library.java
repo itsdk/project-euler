@@ -5,6 +5,7 @@ package main.java;
  */
 
 import java.util.TreeSet;
+import java.math.BigInteger;
 import java.util.ArrayList;
 
 public abstract class Library {
@@ -185,6 +186,21 @@ public abstract class Library {
 			sum += i;
 		}
 		return sum*sum;
+	}
+	
+	/*
+	 * add together the digits of a number n,
+	 * ignore's negative sign of negative numbers
+	 * eg: sumDigits(123) = sumDigits(-123) = 1+2+3 = 6
+	 */
+	protected long sumDigits(BigInteger n) {
+		n = n.abs();
+		long sum = 0;
+		while (!n.equals(BigInteger.ZERO)) {
+			sum += n.mod(BigInteger.TEN).longValue(); // add last digit (in one's place)
+			n = n.divide(BigInteger.TEN);       // cut off last digit
+		}
+		return sum;
 	}
 	
 	/*

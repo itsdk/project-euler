@@ -7,6 +7,7 @@ package test.java;
 import static org.junit.Assert.*;
 import org.junit.Test;
 import java.util.Arrays;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import main.java.Library;
 
@@ -46,7 +47,7 @@ public class LibraryTest extends Library{
 	}
 	
 	@Test
-	public void getTriangularNumber() {
+	public void getTriangularNumberTest() {
 		assertEquals(getTriangularNumber(0L), 0L);
 		assertEquals(getTriangularNumber(7L), 28L); // 1+2+3+4+5+6+7=28
 	}
@@ -64,7 +65,7 @@ public class LibraryTest extends Library{
 	}
 	
 	@Test
-	public void isPrime() {
+	public void isPrimeTest() {
 		assertFalse(isPrime(-1));
 		assertFalse(isPrime(0));
 		assertFalse(isPrime(1));
@@ -95,12 +96,19 @@ public class LibraryTest extends Library{
 	}
 	
 	@Test
-	public void squareOfSum() {
+	public void squareOfSumTest() {
 		assertEquals(squareOfSum(1,10), 3025); // (1 + 2 + ... + 10)^2 = 55^2 = 3025
 	}
 	
 	@Test
-	public void sumOfSquares() {
+	public void sumDigitsTest() {
+		assertEquals(sumDigits(new BigInteger("123")), 6L);    // 1+2+3=6
+		assertEquals(sumDigits(new BigInteger("-123")), 6L);   // 1+2+3=6
+		assertEquals(sumDigits(new BigInteger("32768")), 26L); // 3+2+7+6+8=26
+	}
+	
+	@Test
+	public void sumOfSquaresTest() {
 		assertEquals(sumOfSquares(1,10), 385); // 1^2 + 2^2 + ... + 10^2 = 385
 	}
 }
