@@ -158,6 +158,21 @@ public abstract class Library {
 	}
 	
 	/*
+	 * calculate maximum sum of two rows in a triangle
+	 * eg:
+	 *    7 4
+	 * + 2 4 6
+	 * --------
+	 * = 11 10
+	 */
+	protected int[] maxRowsSum(int[] top, int[] bottom) {
+		for (int i=0; i<top.length; i++) {
+			top[i] += Math.max(bottom[i], bottom[i+1]);
+		}
+		return top;
+	}
+	
+	/*
 	 * next number in Collatz Chain
 	 */
 	protected long nextCollatz(long n) {

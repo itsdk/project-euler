@@ -82,6 +82,17 @@ public class LibraryTest extends Library{
 	}
 	
 	@Test
+	public void maxRowsSumTest() {
+		/*
+		 * 	  7 4
+		 * + 2 4 6
+		 * --------
+		 * = 11 10
+		 */
+		assertArrayEquals(maxRowsSum(new int[]{7,4}, new int[]{2, 4, 6}), new int[]{11, 10});
+	}
+	
+	@Test
 	public void nextCollatzTest() {
 		// test Collatz Chain: 13 -> 40 -> 20 -> 10 -> 5 -> 16 -> 8 -> 4 -> 2 -> 1:
 		assertEquals(nextCollatz(13), 40);
