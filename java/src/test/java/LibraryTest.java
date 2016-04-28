@@ -28,6 +28,11 @@ public class LibraryTest extends Library{
 	}
 	
 	@Test
+	public void factorialTest() {
+		assertEquals(factorial(10), new BigInteger("3628800"));
+	}
+	
+	@Test
 	public void gcdTest() {
 		assertEquals(gcd(8,12), 4); // 4 is greatest number that divides both 8 and 12 with no remainder
 	}

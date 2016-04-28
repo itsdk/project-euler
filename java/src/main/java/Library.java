@@ -27,6 +27,35 @@ public abstract class Library {
 	}
 	
 	/*
+	 * n factorial = n! = n x (n-1) x (n-2) x ... x 3 x 2 x 1
+	 * 
+	 * using prime factorization of n:
+	 * eg: 10! 
+	 * primes below 10 are; 2, 3, 5, and 7
+	 * 10! = 2^8 x 3^4 x 5^2 x 7^1
+	 */
+	protected BigInteger factorial(int n) {
+		BigInteger answer = new BigInteger("1");
+		
+		// get prime factors of n:
+		ArrayList<Integer> primesBelow = getPrimesBelow(n);
+		for (Integer p : primesBelow) {
+			int exponent = 0; // exponent of prime p to get prime factor
+			for (int i=1; true; i++) { 
+				int e = (int) (n/Math.pow(p, i));
+				if (e < 1) { 
+					break;
+				} else {
+					exponent += e;
+				}
+			}
+			// multiply by each prime factor:
+			answer = answer.multiply(new BigInteger(String.valueOf(p)).pow(exponent));
+		}
+		return answer;
+	}
+	
+	/*
 	 * greatest common divisor of two numbers
 	 * (returns largest integer that divides both a and b without a remainder)
 	 */
