@@ -131,6 +131,11 @@ public class LibraryTest extends Library{
 	}
 	
 	@Test
+	public void sumAmicablesTest() {
+		assertEquals(sumAmicables(300), 504); // 504 = 220 + 284
+	}
+	
+	@Test
 	public void sumDigitsTest() {
 		assertEquals(sumDigits(new BigInteger("123")), 6L);    // 1+2+3=6
 		assertEquals(sumDigits(new BigInteger("-123")), 6L);   // 1+2+3=6
@@ -140,5 +145,11 @@ public class LibraryTest extends Library{
 	@Test
 	public void sumOfSquaresTest() {
 		assertEquals(sumOfSquares(1,10), 385); // 1^2 + 2^2 + ... + 10^2 = 385
+	}
+	
+	@Test
+	public void sumPropDivsTest() {
+		assertEquals(sumPropDivs(4), 5);  // 5 = 1+2+2
+		assertEquals(sumPropDivs(10), 8); // 8 = 1+2+5		
 	}
 }

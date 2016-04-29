@@ -270,6 +270,25 @@ public abstract class Library {
 		}
 		return sum*sum;
 	}
+	
+	/*
+	 * sum the amicable numbers in interval [1,n]
+	 * (a and b are amicable numbers if:
+	 * a != b, and
+	 * sum of proper divisors of a = b, and
+	 * sum of proper divisors of b = a)
+	 */
+	protected int sumAmicables(int n) {
+		int result = 0; // sum of amicable numbers to return
+		int b = 0;      // possible amicable number
+		for (int a = 4; a <= n; a++) {
+			b = sumPropDivs(a);
+			if ((b > a) && (b <= n) && (sumPropDivs(b) == a)){
+				result += a + b;
+			}
+		}
+		return result;
+	}
 		
 	/*
 	 * add together the digits of a number n,
@@ -294,6 +313,20 @@ public abstract class Library {
 		long sum = 0;
 		for (int i=a; i<b+1; i++) {
 			sum += i*i;
+		}
+		return sum;
+	}
+
+	/*
+	 * sum of proper divisors of n
+	 */
+	protected int sumPropDivs(int n) {
+		int sum = 1; // 1 is always a divisor
+		int max = (int)Math.sqrt(n)+1; // only need to check up to sqrt(n)
+		for (int i = 2; i <= max; i++) {
+			if (n % i == 0){
+				sum += i + n/i;
+			}
 		}
 		return sum;
 	}
