@@ -14,6 +14,11 @@ import main.java.Library;
 public class LibraryTest extends Library{
 	
 	@Test
+	public void alphaScoreTest() {
+		assertEquals(alphaScore("COLIN"), 53); // COLIN = 3 + 15 + 12 + 9 + 14 = 53
+	}
+	
+	@Test
 	public void binomialCoefficientTest() {
 		// 8th row of Pascal's Triangle:
 		assertEquals(binomialCoefficient(8,0), 1L); 

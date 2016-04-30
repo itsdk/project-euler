@@ -27,3 +27,4 @@ This README.md was generated with [ReadmeGenerator.java](https://github.com/pepe
 | 19 |  |  | [P019.java](https://github.com/pepers/project-euler/blob/master/java/src/main/java/P019.java) |  |  |  | 
 | 20 |  |  | [P020.java](https://github.com/pepers/project-euler/blob/master/java/src/main/java/P020.java) |  |  |  | 
 | 21 |  |  | [P021.java](https://github.com/pepers/project-euler/blob/master/java/src/main/java/P021.java) |  |  |  | 
+| 22 |  |  | [P022.java](https://github.com/pepers/project-euler/blob/master/java/src/main/java/P022.java) |  |  |  | 

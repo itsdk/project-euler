@@ -5,10 +5,27 @@ package main.java;
  */
 
 import java.util.TreeSet;
+import java.io.IOException;
 import java.math.BigInteger;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 
 public abstract class Library {
+	
+	/*
+	 * alphabetical score of a word
+	 * eg: COLIN = 3 + 15 + 12 + 9 + 14 = 53
+	 */
+	protected int alphaScore(String s) {
+		int score = 0;
+		s = s.toUpperCase(); // P022 only has uppercase names, so this line isn't needed
+		for (int i=0; i<s.length(); i++) {
+			score += (int)s.charAt(i) - 64; // because s is uppercase
+		}		
+		return score;
+	}
 	
 	/*
 	 * Binomial Coefficient in combinatorics:
@@ -257,6 +274,14 @@ public abstract class Library {
 		}
 		
 		return words;
+	}
+	
+	/*
+	 * read a file to a String
+	 */
+	static String readFile(String path, Charset encoding) throws IOException {
+		byte[] encoded = Files.readAllBytes(Paths.get(path));
+		return new String(encoded, encoding);
 	}
 	
 	/*
