@@ -346,11 +346,17 @@ public abstract class Library {
 	 * sum of proper divisors of n
 	 */
 	protected int sumPropDivs(int n) {
+		if (n<2) return 0;
 		int sum = 1; // 1 is always a divisor
-		int max = (int)Math.sqrt(n)+1; // only need to check up to sqrt(n)
+		int max = (int)Math.sqrt(n); // only need to check up to sqrt(n)
 		for (int i = 2; i <= max; i++) {
-			if (n % i == 0){
-				sum += i + n/i;
+			if (n % i == 0) {
+				int j = n/i;
+				if (i == j) {
+					sum += i;
+				} else {
+					sum += i + j;
+				}
 			}
 		}
 		return sum;

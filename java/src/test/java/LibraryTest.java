@@ -154,7 +154,10 @@ public class LibraryTest extends Library{
 	
 	@Test
 	public void sumPropDivsTest() {
-		assertEquals(sumPropDivs(4), 5);  // 5 = 1+2+2
+		assertEquals(sumPropDivs(1), 0);  
+		assertEquals(sumPropDivs(2), 1);  // 1 = 1
+		assertEquals(sumPropDivs(3), 1);  // 1 = 1
+		assertEquals(sumPropDivs(4), 3);  // 3 = 1+2
 		assertEquals(sumPropDivs(10), 8); // 8 = 1+2+5		
 	}
 }
