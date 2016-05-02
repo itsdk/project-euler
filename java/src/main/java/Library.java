@@ -44,6 +44,21 @@ public abstract class Library {
 	}
 	
 	/*
+	 * decimal number system to factorial number system
+	 * TODO: NOT USED
+	 */
+	protected int decimalToFactorial(int n) {
+		int factorial = 0;  // number in factorial system, to be returned
+		int placeValue = 1; // place value of digit 
+		while (n > 0) {
+			factorial += (n%placeValue)*(Math.pow(10, placeValue-1));
+			n /= placeValue;
+			placeValue++;              // increment place value
+		}
+		return factorial;
+	}
+	
+	/*
 	 * n factorial = n! = n x (n-1) x (n-2) x ... x 3 x 2 x 1
 	 * 
 	 * using prime factorization of n:
@@ -70,6 +85,29 @@ public abstract class Library {
 			answer = answer.multiply(new BigInteger(String.valueOf(p)).pow(exponent));
 		}
 		return answer;
+	}
+	
+	/*
+	 * factorial number system to decimal number system
+	 * TODO: NOT USED
+	 */
+	protected int factorialToDecimal(int n) {
+		int decimal = 0;    // number in decimal system, to be returned
+		int placeValue = 1; // factorial digit place value
+		int digit;          // current digit of factorial number
+		n /= 10;            // cut off last 0 of all numbers in factorial system
+		
+		while (n > 0) {
+			// take last digit and multiply by place value as a factorial
+			digit = n%10;
+			for (int i=1; i<=placeValue; i++) { 
+				digit *= i;
+			}
+			decimal += digit;
+			placeValue++;                 // increment place value for next digit
+			n /= 10;                      // cut off last digit
+		}		
+		return decimal;
 	}
 	
 	/*

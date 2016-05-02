@@ -33,8 +33,31 @@ public class LibraryTest extends Library{
 	}
 	
 	@Test
+	public void decimalToFactorialTest() {
+		/*
+		 * 463 / 1 = 463, remainder 0
+		 * 463 / 2 = 231, remainder 1
+		 * 231 / 3 = 77,  remainder 0
+		 *  77 / 4 = 19,  remainder 1
+		 *  19 / 5 = 3,   remainder 4
+		 *   3 / 6 = 0,   remainder 3
+		 */
+		assertEquals(decimalToFactorial(463), 341010);
+	}
+	
+	@Test
 	public void factorialTest() {
-		assertEquals(factorial(10), new BigInteger("3628800"));
+		assertEquals(factorial(10), new BigInteger("3628800")); // 10! == 3628800
+	}
+	
+	@Test
+	public void factorialToDecimalTest() {
+		/*
+		 * 341010 (factorial number system)
+		 * = 3*5! + 4*4! + 1*3! + 0*2! + 1*1! + 0*0! 
+		 * = 463 (decimal number system)
+		 */
+		assertEquals(factorialToDecimal(341010), 463);
 	}
 	
 	@Test
