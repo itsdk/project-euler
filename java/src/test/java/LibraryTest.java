@@ -47,7 +47,18 @@ public class LibraryTest extends Library{
 	
 	@Test
 	public void factorialTest() {
+		assertEquals(factorial(0), new BigInteger("1"));
+		assertEquals(factorial(1), new BigInteger("1"));
+		assertEquals(factorial(2), new BigInteger("2"));
+		assertEquals(factorial(3), new BigInteger("6"));
+		assertEquals(factorial(4), new BigInteger("24"));
+		assertEquals(factorial(5), new BigInteger("120"));
+		assertEquals(factorial(6), new BigInteger("720"));
+		assertEquals(factorial(7), new BigInteger("5040"));
+		assertEquals(factorial(8), new BigInteger("40320"));
+		assertEquals(factorial(9), new BigInteger("362880"));
 		assertEquals(factorial(10), new BigInteger("3628800")); // 10! == 3628800
+		assertEquals(factorial(11), new BigInteger("39916800"));
 	}
 	
 	@Test

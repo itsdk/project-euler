@@ -71,6 +71,7 @@ public abstract class Library {
 		
 		// get prime factors of n:
 		ArrayList<Integer> primesBelow = getPrimesBelow(n);
+		if (isPrime(n)) primesBelow.add(n); // have to add n if it is prime itself
 		for (Integer p : primesBelow) {
 			int exponent = 0; // exponent of prime p to get prime factor
 			for (int i=1; true; i++) { 
