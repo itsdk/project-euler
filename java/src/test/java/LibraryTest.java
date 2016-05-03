@@ -72,6 +72,17 @@ public class LibraryTest extends Library{
 	}
 	
 	@Test
+	public void fibonacciIndexOfTest() {
+		assertEquals(fibonacciIndexOf(new BigInteger("1")), 2);    // 1   == F(2)
+		assertEquals(fibonacciIndexOf(new BigInteger("2")), 3);    // 2   == F(3)
+		assertEquals(fibonacciIndexOf(new BigInteger("3")), 4);    // 3   == F(4)
+		assertEquals(fibonacciIndexOf(new BigInteger("4")), 5);    // 4   <  F(5)  = 5
+		assertEquals(fibonacciIndexOf(new BigInteger("5")), 5);    // 5   == F(5)
+		assertEquals(fibonacciIndexOf(new BigInteger("10")), 7);   // 10  <  F(7)  = 13
+		assertEquals(fibonacciIndexOf(new BigInteger("100")), 12); // 100 <  F(12) = 144
+	}
+	
+	@Test
 	public void gcdTest() {
 		assertEquals(gcd(8,12), 4); // 4 is greatest number that divides both 8 and 12 with no remainder
 	}

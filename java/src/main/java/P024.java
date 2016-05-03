@@ -31,14 +31,14 @@ public class P024 extends Problem {
 		
 		int p = N; // permutations to be determined
 		
-		for (int i=0; i<D; i++) {
+		while (digitsLeft > 0) {
 			int permutations = factorial(digitsLeft-1).intValue();
 			int total = 0;
-			for (int j : perm) {
+			for (int i : perm) {
 				total += permutations;
 				if (total >= p) {
-					nthPerm += j;
-					perm.remove(Integer.valueOf(j));
+					nthPerm += i;
+					perm.remove(Integer.valueOf(i));
 					digitsLeft--;
 					break;
 				} 

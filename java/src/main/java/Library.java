@@ -112,6 +112,28 @@ public abstract class Library {
 	}
 	
 	/*
+	 * return the index of the first Fibonacci number that is 
+	 * equal to or larger than the argument 'fib'
+	 */
+	protected int fibonacciIndexOf(BigInteger limit) {
+		BigInteger[] f = new BigInteger[3]; // store previous two fibs and the next
+		int count = 2;                      // index count so far
+
+		// first two fib numbers are 1:
+		f[0] = BigInteger.ONE;
+		f[2] = BigInteger.ONE;
+
+		int i = 0;
+		// calculate fibs while current fib is less than limit:
+		while ((f[i]).compareTo(limit) < 0) { 
+			i = (i+1)%3; // index to store next fib in the array of 3
+			f[i] = f[(i+1)%3].add(f[(i+2)%3]); // store next fib
+			count++; // increment count of fibs so far
+		}
+		return count;
+	}
+	
+	/*
 	 * greatest common divisor of two numbers
 	 * (returns largest integer that divides both a and b without a remainder)
 	 */
