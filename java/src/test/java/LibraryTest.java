@@ -137,6 +137,15 @@ public class LibraryTest extends Library{
 	}
 	
 	@Test
+	public void longestRecurrenceTest() {
+		assertEquals(longestRecurrence("ababcaababcaab"), "abcaab");
+		assertEquals(longestRecurrence("142857142857"), "142857");
+		assertEquals(longestRecurrence("8765123123123"), "123");
+		assertEquals(longestRecurrence("1231231234"), "4");
+		assertEquals(longestRecurrence("666666666666666"), "6");
+	}
+	
+	@Test
 	public void maxRowsSumTest() {
 		/*
 		 * 	  7 4

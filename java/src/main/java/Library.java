@@ -265,6 +265,46 @@ public abstract class Library {
 	}
 	
 	/*
+	 * find the longest recurrence of substring in String s
+	 */
+	protected String longestRecurrence (String s) {
+		String longest = s.substring(s.length()-1); // longest recurrence to return
+		String sub = "";  // substring of s
+		String rest = ""; // s - sub
+		for (int i=0; i<s.length(); i++) {
+			for (int j=i+1; j<s.length(); j++) {
+				sub = s.substring(i, j);
+				int lsub = sub.length();
+				rest = (j!=s.length()-1) ? s.substring(j) : ""; 
+				int lrest = rest.length();
+				
+				/* 
+				 * sub must be less than whole s, and
+				 * sub must be longer than longest, and 
+				 * rest of s must be able to contain multiples of sub,
+				 * and length of rest must be greater than 0:
+				 */
+				if ((sub.equals(s)) ||
+						(lsub <= longest.length()) || 
+						(lrest % lsub != 0) ||
+						(lrest == 0)) continue;
+				
+				// check that rest of String is recurrences of sub1:
+				boolean recurrence = true;
+				for (int k=0; k<lrest/lsub; k++) {
+					String sub2 = rest.substring(k*lsub, (k+1)*lsub);
+					if (!sub2.equals(sub)) {
+						recurrence = false;
+						break;
+					}
+				}
+				if (recurrence) longest = sub;
+			}
+		}		
+		return longest;
+	}
+	
+	/*
 	 * calculate maximum sum of two rows in a triangle
 	 * eg:
 	 *    7 4
