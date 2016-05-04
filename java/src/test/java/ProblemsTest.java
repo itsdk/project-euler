@@ -190,7 +190,7 @@ public class ProblemsTest {
 	@Test
 	public void testP026() {
 		p = new P026();
-		//assertEquals(p.solve(), "");
+		assertEquals(p.solve(), "983");
 		p.time();
 	}
 

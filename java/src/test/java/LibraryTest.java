@@ -138,11 +138,9 @@ public class LibraryTest extends Library{
 	
 	@Test
 	public void longestRecurrenceTest() {
-		assertEquals(longestRecurrence("ababcaababcaab"), "abcaab");
-		assertEquals(longestRecurrence("142857142857"), "142857");
-		assertEquals(longestRecurrence("8765123123123"), "123");
-		assertEquals(longestRecurrence("1231231234"), "4");
-		assertEquals(longestRecurrence("666666666666666"), "6");
+		assertEquals(longestRecurrence(2), 1); // 1/2 = 0.5
+		assertEquals(longestRecurrence(3), 1); // 1/3 = 0.(3)333333...
+		assertEquals(longestRecurrence(7), 6); // 1/7 = 0.(142857)142857...
 	}
 	
 	@Test

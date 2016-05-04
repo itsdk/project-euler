@@ -27,21 +27,14 @@ public class P026 extends Problem {
 
 	@Override
 	public String solve() {
-		
-		double decimal;   // decimal representation of unit fraction
-		String decf;      // decimal fraction part of 1/d
-		int length;       // current longest length of recurring cycle in decf of 1/d
-		int longest = 0;  // longest length of any recurring cycle
-		int longestd = 0; // value of d for longest
-		
-		for (int d=2; d<D; d++) {
-			decimal = 1/(double)d;
-			decf = Double.toString(decimal).substring(2);
-			length = longestRecurrence(decf).length();
+		int length = 0;   // length of longest recurring cycle in N/d
+		int longest = 0;  // current longest recurring cycle of all N/d
+		int longestd = 0; // denominator of longest
+		for (int d=1; d<=D; d++) {
+			length = longestRecurrence(d);
 			if (length > longest) {
 				longest = length;
 				longestd = d;
-				System.out.println(d + "\t : " + decf + "\t : " + longest);
 			}
 		}
 		
