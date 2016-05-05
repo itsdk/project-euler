@@ -27,8 +27,8 @@ public class P026 extends Problem {
 
 	@Override
 	public String solve() {
-		int length = 0;   // length of longest recurring cycle in N/d
-		int longest = 0;  // current longest recurring cycle of all N/d
+		int length = 0;   // length of longest recurring cycle in 1/d
+		int longest = 0;  // current longest recurring cycle of all 1/d
 		int longestd = 0; // denominator of longest
 		for (int d=1; d<=D; d++) {
 			length = longestRecurrence(d);

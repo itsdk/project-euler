@@ -193,5 +193,12 @@ public class ProblemsTest {
 		assertEquals(p.solve(), "983");
 		p.time();
 	}
+	
+	@Test
+	public void testP027() {
+		p = new P027();
+		assertEquals(p.solve(), "-59231");
+		p.time();
+	}
 
 }
