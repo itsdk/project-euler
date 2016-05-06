@@ -212,4 +212,5 @@ public class LibraryTest extends Library{
 		assertEquals(sumPropDivs(4), 3);  // 3 = 1+2
 		assertEquals(sumPropDivs(10), 8); // 8 = 1+2+5		
 	}
+	
 }
