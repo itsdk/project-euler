@@ -107,6 +107,15 @@ public class LibraryTest extends Library{
 		assertEquals(getTriangularNumber(7L), 28L); // 1+2+3+4+5+6+7=28
 	}
 	
+	@Test
+	public void intPowTest() {
+		assertEquals(intPow(0, 4), 0);
+		assertEquals(intPow(1, 4), 1);
+		assertEquals(intPow(2, 4), 16);
+		assertEquals(intPow(3, 4), 81);
+		assertEquals(intPow(9, 5), 59049);
+	}
+	
 	@Test 
 	public void isPalindromeTest() { 
 		assertTrue(isPalindrome("racecar"));  // odd number of characters

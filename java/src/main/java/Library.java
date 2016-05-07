@@ -225,6 +225,17 @@ public abstract class Library {
 	}
 	
 	/*
+	 * slightly faster for positive integers than Math.pow(n,exp)
+	 */
+	protected int intPow(int n, int exp) {
+		int pow = 1;
+		for (int i=1; i<=exp; i++) {
+			pow *= n;
+		}
+		return pow;
+	}
+	
+	/*
 	 * checks if a String is a palindrome or not
 	 * (reads the same forwards and backwards)
 	 */
