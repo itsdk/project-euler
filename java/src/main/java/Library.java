@@ -11,6 +11,7 @@ import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.HashSet;
 
 public abstract class Library {
 	
@@ -245,6 +246,26 @@ public abstract class Library {
 					Character.toLowerCase(s.charAt(s.length()-1-i))) {
 				return false;
 			}
+		}
+		return true;
+	}
+	
+	/*
+	 * n is a number, it is pandigital if:
+	 * it makes use of every number from 1 to the number of digits in n,
+	 * exactly once
+	 */
+	protected boolean isPandigital(int n) {
+		if (n==0) return false;
+		int numDigits = 0;                                // number of digits in n
+		HashSet<Integer> digits = new HashSet<Integer>(); // store unique digits from n
+		while (n > 0) {
+			digits.add(n%10); // get last digit
+			n /= 10;          // remove last digit
+			numDigits++;      // increment number of digits in n
+		}
+		for (int i=1; i<=numDigits; i++) {
+			if (!digits.contains(Integer.valueOf(i))) return false;
 		}
 		return true;
 	}

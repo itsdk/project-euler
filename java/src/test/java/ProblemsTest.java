@@ -229,4 +229,11 @@ public class ProblemsTest {
 		p.time();
 	}
 	
+	@Test
+	public void testP032() {
+		p = new P032();
+		assertEquals(p.solve(), "45228");
+		p.time();
+	}
+	
 }

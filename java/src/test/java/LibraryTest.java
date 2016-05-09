@@ -129,6 +129,17 @@ public class LibraryTest extends Library{
 	}
 	
 	@Test
+	public void isPandigitalTest() {
+		assertFalse(isPandigital(0));
+		assertFalse(isPandigital(4));
+		assertTrue(isPandigital(1));
+		assertTrue(isPandigital(12345));
+		assertTrue(isPandigital(23154));
+		assertFalse(isPandigital(12335));
+		assertFalse(isPandigital(111));
+	}
+	
+	@Test
 	public void isPrimeTest() {
 		assertFalse(isPrime(-1));
 		assertFalse(isPrime(0));
