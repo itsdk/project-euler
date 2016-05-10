@@ -39,3 +39,4 @@ This README.md was generated with [ReadmeGenerator.java](https://github.com/pepe
 | 31 |  |  | [P031.java](https://github.com/pepers/project-euler/blob/master/java/src/main/java/P031.java) |  |  |  | 
 | 32 |  |  | [P032.java](https://github.com/pepers/project-euler/blob/master/java/src/main/java/P032.java) |  |  |  | 
 | 33 |  |  | [P033.java](https://github.com/pepers/project-euler/blob/master/java/src/main/java/P033.java) |  |  |  | 
+| 34 |  |  | [P034.java](https://github.com/pepers/project-euler/blob/master/java/src/main/java/P034.java) |  |  |  | 
