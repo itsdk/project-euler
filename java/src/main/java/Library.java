@@ -45,6 +45,22 @@ public abstract class Library {
 	}
 	
 	/*
+	 * return the cyclic permutations of a number
+	 * eg: 1234, 2341, 3412, 4123
+	 */
+	protected ArrayList<Integer> cyclicallyPermute(int n) {
+		String p = Integer.toString(n);
+		int count = p.length();
+		ArrayList<Integer> permutations = new ArrayList<Integer>(count);
+		while (count>0) {
+			permutations.add(Integer.parseInt(p));
+			p = p.substring(1) + p.charAt(0);
+			count--;
+		}		
+		return permutations;
+	}
+	
+	/*
 	 * decimal number system to factorial number system
 	 * TODO: NOT USED
 	 */
@@ -280,6 +296,16 @@ public abstract class Library {
 		long max = (long) Math.sqrt(n); 
 		for (long i=3; i<=max; i+=2) {
 			if (n % i == 0) return false;          // not prime if multiple of a number
+		}
+		return true;
+	}
+	
+	/*
+	 * checks if whole list is prime
+	 */
+	protected boolean isPrime(ArrayList<Integer> list) {
+		for (Integer i : list) {
+			if (!isPrime(i.intValue())) return false;
 		}
 		return true;
 	}

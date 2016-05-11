@@ -33,6 +33,14 @@ public class LibraryTest extends Library{
 	}
 	
 	@Test
+	public void cyclicallyPermuteTest() {
+		assertEquals(cyclicallyPermute(1234), 
+				new ArrayList<Integer>(Arrays.asList(1234, 2341, 3412, 4123)));
+		assertEquals(cyclicallyPermute(5), 
+				new ArrayList<Integer>(Arrays.asList(5)));
+	}
+	
+	@Test
 	public void decimalToFactorialTest() {
 		/*
 		 * 463 / 1 = 463, remainder 0
@@ -149,6 +157,10 @@ public class LibraryTest extends Library{
 		assertFalse(isPrime(4));
 		assertTrue(isPrime(5));
 		assertTrue(isPrime(787));
+		
+		assertFalse(isPrime(new ArrayList<Integer>(Arrays.asList(4))));
+		assertFalse(isPrime(new ArrayList<Integer>(Arrays.asList(2,3,4,5))));
+		assertTrue(isPrime(new ArrayList<Integer>(Arrays.asList(2,3,5))));
 	}
 	
 	@Test
