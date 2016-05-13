@@ -498,4 +498,21 @@ public abstract class Library {
 		return sum;
 	}
 	
+	/*
+	 * remove the rightmost most digit of n
+	 * eg: 1234 = 123
+	 */
+	protected int truncateLeft(int n) {
+		return n/10;
+	}
+	
+	/*
+	 * remove the leftmost most digit of n
+	 * eg: 1234 = 234
+	 */
+	protected int truncateRight(int n) {
+		return (int)(n % Math.pow(10, (int)Math.log10(n)));
+	}
+	
+	
 }

@@ -245,4 +245,19 @@ public class LibraryTest extends Library{
 		assertEquals(sumPropDivs(10), 8); // 8 = 1+2+5		
 	}
 	
+	@Test
+	public void truncateLeftTest() {
+		assertEquals(truncateLeft(1234), 123);
+		assertEquals(truncateLeft(0), 0);
+		assertEquals(truncateLeft(5), 0);
+	}
+
+	@Test
+	public void truncateRightTest() {
+		assertEquals(truncateRight(1234), 234);
+		assertEquals(truncateRight(0), 0);
+		assertEquals(truncateRight(5), 0);
+	}
+	
+	
 }
