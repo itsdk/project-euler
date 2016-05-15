@@ -311,6 +311,18 @@ public abstract class Library {
 	}
 	
 	/*
+	 * for triangle side lengths a, b, and c, does Pythagorean Theorem hold?
+	 * a^2 + b^2 = c^2 
+	 * a, b, and c are integers
+	 */
+	protected boolean isRightTriangle(int a, int b, int c) {
+		double _c = Math.sqrt((a*a)+(b*b));
+		if (_c != Math.floor(_c)) return false; // check that calculated c is whole number
+		if(((int)_c) == c) return true;
+		return false;
+	}
+	
+	/*
 	 * least common multiple of the numbers [1,n]
 	 * (returns smallest integer divisible by all numbers [1,n])
 	 */

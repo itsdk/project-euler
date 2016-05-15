@@ -164,6 +164,14 @@ public class LibraryTest extends Library{
 	}
 	
 	@Test
+	public void isRightTriangleTest() {
+		assertTrue(isRightTriangle(3,4,5));
+		assertTrue(isRightTriangle(20,48,52));
+		assertFalse(isRightTriangle(1,1,1));
+		assertFalse(isRightTriangle(2,3,4));
+	}
+	
+	@Test
 	public void lcmTest() {
 		assertEquals(lcm(10), 2520); // given in Project Euler problem#5's question
 	}

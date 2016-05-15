@@ -278,4 +278,11 @@ public class ProblemsTest {
 		p.time();
 	}
 	
+	@Test
+	public void testP039() {
+		p = new P039();
+		assertEquals(p.solve(), "840");
+		p.time();
+	}
+	
 }
