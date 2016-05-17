@@ -18,8 +18,19 @@ public class P040 extends Problem {
 	@Override
 	public String solve() {
 		// Champernowne constant
+		StringBuilder sb = new StringBuilder();
+		for (int i=1; i<1_000_000; i++) {
+			sb.append(i);
+		}
 		
-		return null;
+		int product = 1; // product of d1*d10*d100*d1000*d10000*d100000*d1000000 (7 d's)
+		
+		for (int i=0; i<7; i++) {
+			char digit = sb.charAt((int)(Math.pow(10, i)-1));
+			product *= Character.getNumericValue(digit); 
+		}
+		
+		return Integer.toString(product);
 	}
 
 }

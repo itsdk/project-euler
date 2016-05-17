@@ -288,7 +288,7 @@ public class ProblemsTest {
 	@Test
 	public void testP040() {
 		p = new P040();
-		//assertEquals(p.solve(), "");
+		assertEquals(p.solve(), "210");
 		p.time();
 	}
 	
