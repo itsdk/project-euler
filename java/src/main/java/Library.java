@@ -200,7 +200,7 @@ public abstract class Library {
 	 * using Sieve of Eratosthenes
 	 */
 	protected ArrayList<Integer> getPrimesBelow(int n) {
-		ArrayList<Integer> primes = new ArrayList<Integer>(); 
+		ArrayList<Integer> primes = new ArrayList<Integer>();
 		if (n<=2) { return primes; } // no primes below 2
 		
 		boolean[] sieve = new boolean[n]; // false = prime, true = composite
