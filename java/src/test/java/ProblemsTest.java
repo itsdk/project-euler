@@ -299,4 +299,10 @@ public class ProblemsTest {
 		p.time();
 	}
 	
+	@Test
+	public void testP042() {
+		p = new P042();
+		assertEquals(p.solve(), "162");
+		p.time();
+	}
 }
