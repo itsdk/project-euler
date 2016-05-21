@@ -12,6 +12,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.LinkedList;
 
 public abstract class Library {
 	
@@ -177,6 +178,15 @@ public abstract class Library {
 			}
 		}
 		return factors;
+	}
+	
+	/*
+	 * get the nth pentagonal number
+	 * Pn = n(3n-1)/2
+	 */
+	protected int getPentagonal(int n) {
+		if (n<1) return 0;
+		return ((3*n*n)-n)/2;
 	}
 	
 	/*
@@ -425,9 +435,18 @@ public abstract class Library {
 	}
 	
 	/*
+	 * get a list of all permutations of a number
+	 */
+	protected LinkedList<Integer> permutations(int n) {
+		LinkedList<Integer> permutations = new LinkedList<Integer>();
+		//TODO
+		return permutations;
+	}
+	
+	/*
 	 * read a file to a String
 	 */
-	static String readFile(String path, Charset encoding) throws IOException {
+	protected static String readFile(String path, Charset encoding) throws IOException {
 		byte[] encoded = Files.readAllBytes(Paths.get(path));
 		return new String(encoded, encoding);
 	}

@@ -96,6 +96,22 @@ public class LibraryTest extends Library{
 	}
 	
 	@Test
+	public void getPentagonalTest() {
+		assertEquals(getPentagonal(-1), 0);
+		assertEquals(getPentagonal(0), 0);
+		assertEquals(getPentagonal(1), 1);
+		assertEquals(getPentagonal(2), 5);
+		assertEquals(getPentagonal(3), 12);
+		assertEquals(getPentagonal(4), 22);
+		assertEquals(getPentagonal(5), 35);
+		assertEquals(getPentagonal(6), 51);
+		assertEquals(getPentagonal(7), 70);
+		assertEquals(getPentagonal(8), 92);
+		assertEquals(getPentagonal(9), 117);
+		assertEquals(getPentagonal(10), 145);
+	}
+	
+	@Test
 	public void getPrimeTest() {
 		assertEquals(getPrime(-1), 0); // invalid n=-1
 		assertEquals(getPrime(0), 0);  // invalid n=0

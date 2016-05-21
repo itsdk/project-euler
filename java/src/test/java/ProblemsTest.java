@@ -305,4 +305,16 @@ public class ProblemsTest {
 		assertEquals(p.solve(), "162");
 		p.time();
 	}
+	
+	@Test
+	public void testP043() {
+		//TODO
+	}
+	
+	@Test
+	public void testP044() {
+		p = new P044();
+		//assertEquals(p.solve(), "");
+		p.time();
+	}
 }
