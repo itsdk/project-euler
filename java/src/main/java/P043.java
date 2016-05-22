@@ -23,8 +23,10 @@ public class P043 extends Problem {
 
 	@Override
 	public String solve() {
+		int sum = 0; // number to return
 		// TODO : use permutations(9876543210)
-		return null;
+		System.out.println(100%10);
+		return Integer.toString(sum);
 	}
 
 }

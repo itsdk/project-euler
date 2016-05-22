@@ -308,13 +308,15 @@ public class ProblemsTest {
 	
 	@Test
 	public void testP043() {
-		//TODO
+		p = new P043();
+		//TODO: assertEquals(p.solve(), "");
+		p.time();
 	}
 	
 	@Test
 	public void testP044() {
 		p = new P044();
-		//assertEquals(p.solve(), "");
+		assertEquals(p.solve(), "5482660");
 		p.time();
 	}
 }

@@ -437,10 +437,15 @@ public abstract class Library {
 	/*
 	 * get a list of all permutations of a number
 	 */
-	protected LinkedList<Integer> permutations(int n) {
-		LinkedList<Integer> permutations = new LinkedList<Integer>();
+	protected String permutations(int n) {
+		LinkedList<Integer> digits = new LinkedList<Integer>();
 		//TODO
-		return permutations;
+		while (n>0) {
+			digits.add(n%10); // get rightmost digit
+			n /= 10;          // remove rightmost digit
+		}
+	
+		return null;
 	}
 	
 	/*

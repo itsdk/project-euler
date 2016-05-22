@@ -27,10 +27,10 @@ public class P044 extends Problem {
 		HashSet<Integer> pentagonals = new HashSet<Integer>();
 		pentagonals.add(maxP);
 		
-		for (int m=1; m<10000; m++) {
+		for (int m=1; m<2396; m++) {
 			maxP = getPentagonal(m);
 			pentagonals.add(maxP);
-			maxN = m;			
+			maxN = m;		
 		}
 		
 		for (Integer j : pentagonals) {
@@ -39,7 +39,10 @@ public class P044 extends Problem {
 					if (pentagonals.contains(j.intValue()+k.intValue()) &&
 							pentagonals.contains(k.intValue()-j.intValue())) {
 						int newD = Math.abs(k.intValue()-j.intValue());
-						if (newD < d) d = newD;
+						if (newD < d) {
+							d = newD;
+							System.out.println("j = " + j + "\t : k = " + k + "\t : j+k = " + (j+k));
+						}
 					}
 				}
 			}
