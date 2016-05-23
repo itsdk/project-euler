@@ -440,9 +440,14 @@ public abstract class Library {
 	protected String permutations(int n) {
 		LinkedList<Integer> digits = new LinkedList<Integer>();
 		//TODO
+		int numDigits = 0; // number of digits in n
 		while (n>0) {
 			digits.add(n%10); // get rightmost digit
 			n /= 10;          // remove rightmost digit
+			numDigits++;
+		}
+		for (int i=1; i<=numDigits; i++) {
+			
 		}
 	
 		return null;

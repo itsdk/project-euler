@@ -1,5 +1,8 @@
 package main.java;
 
+import java.util.HashSet;
+import java.util.TreeSet;
+
 /*
  * The first two consecutive numbers to have two distinct prime factors are:
  * 
@@ -17,11 +20,24 @@ package main.java;
  */
 
 public class P047 extends Problem {
-
+	
 	@Override
 	public String solve() {
-		// TODO Auto-generated method stub
-		return null;
+		int count = 644;
+		while (true) {
+			boolean fourConsecutive = true;
+			for (int i=count; i<count+4; i++) { // get 4 consecutive numbers
+				TreeSet<Long> factors = getFactors((long)i);
+				HashSet<Long> primeFactors = new HashSet<Long>(4);
+				for (Long f : factors) {
+					if (isPrime(f)) primeFactors.add(f);
+				}
+				if (primeFactors.size() < 4) fourConsecutive = false;
+			}
+			if (fourConsecutive) break;
+			count++;
+		}
+		return Integer.toString(count);
 	}
 
 }
