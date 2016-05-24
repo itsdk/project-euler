@@ -12,7 +12,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.LinkedList;
 
 public abstract class Library {
 	
@@ -435,22 +434,33 @@ public abstract class Library {
 	}
 	
 	/*
-	 * get a list of all permutations of a number
+	 * Get a list of all permutations of a number.
+	 * Uses Heap's algorithm.
+	 * n = number of digits
+	 * p = number converted to long[]
+	 * perms = permutations to be computed (call with an empty ArrayList) 
 	 */
-	protected String permutations(int n) {
-		LinkedList<Integer> digits = new LinkedList<Integer>();
-		//TODO
-		int numDigits = 0; // number of digits in n
-		while (n>0) {
-			digits.add(n%10); // get rightmost digit
-			n /= 10;          // remove rightmost digit
-			numDigits++;
+	protected void permutations(int n, long[] p, ArrayList<Long> perms) {
+		if (n == 1) {
+			int permutation = 0;
+			for (int i=0; i<p.length; i++) { // convert digits in int[] to number
+				permutation += p[i]*intPow(10, p.length-i-1); 
+			}
+			perms.add(Long.valueOf(permutation)); // add permutation
+		} else {
+			for (int i=0; i<n; i++) {
+				permutations(n-1, p, perms);
+				if (n % 2 == 1) { // if n is odd, swap(0, n-1)
+					long temp = p[0];
+					p[0] = p[n-1];
+			        p[n-1] = temp;
+				} else {          // if n is even, swap (i, n-1)
+					long temp = p[i];
+					p[i] = p[n-1];
+			        p[n-1] = temp;
+				}
+			}
 		}
-		for (int i=1; i<=numDigits; i++) {
-			
-		}
-	
-		return null;
 	}
 	
 	/*

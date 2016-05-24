@@ -239,6 +239,13 @@ public class LibraryTest extends Library{
 	}
 	
 	@Test
+	public void permutationsTest() {
+		ArrayList<Long> perms = new ArrayList<Long>(factorial(3).intValue());
+		permutations(3, new long[]{1,2,3}, perms);
+		assertEquals(perms, Arrays.asList(123L, 213L, 312L, 132L, 231L, 321L));
+	}
+	
+	@Test
 	public void squareOfSumTest() {
 		assertEquals(squareOfSum(1,10), 3025); // (1 + 2 + ... + 10)^2 = 55^2 = 3025
 	}

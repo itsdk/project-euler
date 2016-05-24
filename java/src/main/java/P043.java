@@ -1,5 +1,7 @@
 package main.java;
 
+import java.util.ArrayList;
+
 /*
  * The number, 1406357289, is a 0 to 9 pandigital number because it is made up of each of 
  * the digits 0 to 9 in some order, but it also has a rather interesting sub-string 
@@ -25,7 +27,11 @@ public class P043 extends Problem {
 	public String solve() {
 		int sum = 0; // number to return
 		// TODO : use permutations(9876543210)
-		System.out.println(100%10);
+		ArrayList<Long> perms = new ArrayList<Long>(factorial(10).intValue());
+		permutations(10, new long[]{0,1,2,3,4,5,6,7,8,9}, perms);
+		for (Long p : perms) {
+			System.out.println(p.longValue());
+		}
 		return Integer.toString(sum);
 	}
 
