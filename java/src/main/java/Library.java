@@ -11,6 +11,7 @@ import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 
 public abstract class Library {
@@ -437,25 +438,26 @@ public abstract class Library {
 	 * Get a list of all permutations of a number.
 	 * Uses Heap's algorithm.
 	 * n = number of digits
-	 * p = number converted to long[]
+	 * p = number converted to int[]
 	 * perms = permutations to be computed (call with an empty ArrayList) 
 	 */
-	protected void permutations(int n, long[] p, ArrayList<Long> perms) {
+	protected void permutations(int n, int[] p, ArrayList<Long> perms) {
 		if (n == 1) {
-			int permutation = 0;
-			for (int i=0; i<p.length; i++) { // convert digits in int[] to number
-				permutation += p[i]*intPow(10, p.length-i-1); 
+			Long permutation = new Long(0);
+			int numDigits = p.length;
+			for (int i=0; i<numDigits; i++) { // convert digits in int[] to number
+				permutation += Long.valueOf(p[i])*Long.valueOf(intPow(10, numDigits-(i+1))); 
 			}
-			perms.add(Long.valueOf(permutation)); // add permutation
+			perms.add(permutation); // add permutation
 		} else {
 			for (int i=0; i<n; i++) {
 				permutations(n-1, p, perms);
 				if (n % 2 == 1) { // if n is odd, swap(0, n-1)
-					long temp = p[0];
+					int temp = p[0];
 					p[0] = p[n-1];
 			        p[n-1] = temp;
 				} else {          // if n is even, swap (i, n-1)
-					long temp = p[i];
+					int temp = p[i];
 					p[i] = p[n-1];
 			        p[n-1] = temp;
 				}
@@ -481,6 +483,31 @@ public abstract class Library {
 			sum += i;
 		}
 		return sum*sum;
+	}
+	
+	/*
+	 * Return a piece of a number.
+	 * 
+	 * num    = the starting number to get a piece of
+	 * start  = the starting index
+	 * offset = the number of digits to include 
+	 * 
+	 * eg: subNum(123456L, 2, 3) = 345
+	 */
+	protected long subNum(long num, int start, int offset) {
+		long sub = 0L;
+		ArrayList<Integer> digits = new ArrayList<Integer>();		
+		while (num > 0) { 
+			digits.add((int) (num % 10)); // get last digit
+			num /= 10;
+		}
+		Collections.reverse(digits);
+		int pow = offset-1;
+		for (int i=0; i<offset; i++) {
+			sub += digits.get(start + i)*intPow(10, pow);
+			pow--;
+		}
+		return sub;
 	}
 	
 	/*

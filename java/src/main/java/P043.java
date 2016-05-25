@@ -23,16 +23,36 @@ import java.util.ArrayList;
 
 public class P043 extends Problem {
 
+	// First 7 primes, given by problem:
+	private static int[] DIVISIBLE_BY = {2, 3, 5, 7, 11, 13, 17};  
+	
 	@Override
 	public String solve() {
-		int sum = 0; // number to return
+		long sum = 0; // number to return
 		// TODO : use permutations(9876543210)
 		ArrayList<Long> perms = new ArrayList<Long>(factorial(10).intValue());
-		permutations(10, new long[]{0,1,2,3,4,5,6,7,8,9}, perms);
+		permutations(10, new int[]{0,1,2,3,4,5,6,7,8,9}, perms);
 		for (Long p : perms) {
-			System.out.println(p.longValue());
+			long longP = p.longValue();
+			
+			long temp = longP;
+			int numDigits = 0;
+			while (temp > 0) { // find number of digits
+				temp /= 10;
+				numDigits++;
+			}
+			
+			int start = (numDigits == 9) ? 0 : 1;
+			boolean divisible = true;
+			for (int i=0; i<DIVISIBLE_BY.length; i++) {
+				if (subNum(longP, start, 3) % DIVISIBLE_BY[i] != 0) {
+					divisible = false;
+				}
+				start++;
+			}
+			if (divisible) sum += longP;
 		}
-		return Integer.toString(sum);
+		return Long.toString(sum);
 	}
 
 }

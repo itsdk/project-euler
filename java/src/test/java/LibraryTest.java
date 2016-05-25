@@ -240,14 +240,26 @@ public class LibraryTest extends Library{
 	
 	@Test
 	public void permutationsTest() {
+		/*
+		 * permutations of 123:
+		 * # permutations = 3! = 3*2*1 = 6
+		 * permutations = 123, 213, 312, 132, 231, 321
+		 */
 		ArrayList<Long> perms = new ArrayList<Long>(factorial(3).intValue());
-		permutations(3, new long[]{1,2,3}, perms);
+		permutations(3, new int[]{1,2,3}, perms);
 		assertEquals(perms, Arrays.asList(123L, 213L, 312L, 132L, 231L, 321L));
 	}
 	
 	@Test
 	public void squareOfSumTest() {
 		assertEquals(squareOfSum(1,10), 3025); // (1 + 2 + ... + 10)^2 = 55^2 = 3025
+	}
+	
+	@Test
+	public void subNumTest() {
+		assertEquals(subNum(123456L, 2, 3), 345L);
+		assertEquals(subNum(120456L, 2, 3), 45L);
+		assertEquals(subNum(1063572894L, 1, 3), 63L);
 	}
 	
 	@Test
