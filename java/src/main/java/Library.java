@@ -181,8 +181,18 @@ public abstract class Library {
 	}
 	
 	/*
+	 * get the nth hexagonal number
+	 * H(n) = n(2n-1)
+	 */
+	protected long getHexagonal(int n) {
+		if (n<0) return 0;
+		long m = (long) n;
+		return 2*m*m - m;
+	}
+	
+	/*
 	 * get the nth pentagonal number
-	 * Pn = n(3n-1)/2
+	 * P(n) = n(3n-1)/2
 	 */
 	protected int getPentagonal(int n) {
 		if (n<1) return 0;
@@ -294,6 +304,19 @@ public abstract class Library {
 			if (!digits.contains(Integer.valueOf(i))) return false;
 		}
 		return true;
+	}
+	
+	/*
+	 * Determines if x is a pentagonal number or not.
+	 * P(n) = n(3n-1)/2
+	 * The inverse function:
+	 * n = (sqrt(24x + 1) + 1)/6
+	 * where x is a pentagonal number iff n is a natural number
+	 */
+	protected boolean isPentagonal(long x) {
+		double test = (Math.sqrt((24 * x) + 1) + 1.0) / 6.0;
+		if (test == (int)test) return true;
+		return false;
 	}
 	
 	/*

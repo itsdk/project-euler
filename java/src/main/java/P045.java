@@ -16,8 +16,23 @@ public class P045 extends Problem {
 
 	@Override
 	public String solve() {
-		// TODO Auto-generated method stub
-		return null;
+		long next = 0L; // answer to return
+		/*
+		 * T(n)      = n(n + 1)/2
+		 * Substitute an odd n into T:
+		 * T(2m - 1) = (2m - 1)((2m - 1) + 1)/2
+		 *           = (2m - 1)2m/2
+		 *           = m(2m - 1)
+		 * H(n)      = n(2n - 1)
+		 * Therefore, Hexagonal numbers are a subset of Triangle numbers.
+		 */
+		int n = 143;
+		while (true) {
+			n++;
+			next = getHexagonal(n);
+			if (isPentagonal(next)) break;
+		}
+		return Long.toString(next);
 	}
 
 }

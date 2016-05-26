@@ -96,6 +96,15 @@ public class LibraryTest extends Library{
 	}
 	
 	@Test
+	public void getHexagonalTest() {
+		assertEquals(getHexagonal(-1), 0L);
+		assertEquals(getHexagonal(0), 0L);
+		assertEquals(getHexagonal(1), 1L);
+		assertEquals(getHexagonal(2), 6L);
+		assertEquals(getHexagonal(143), 40755L);
+	}
+	
+	@Test
 	public void getPentagonalTest() {
 		assertEquals(getPentagonal(-1), 0);
 		assertEquals(getPentagonal(0), 0);
@@ -161,6 +170,19 @@ public class LibraryTest extends Library{
 		assertTrue(isPandigital(23154));
 		assertFalse(isPandigital(12335));
 		assertFalse(isPandigital(111));
+	}
+	
+	@Test
+	public void isPentagonalTest() {
+		assertFalse(isPentagonal(-1));
+		assertFalse(isPentagonal(0));
+		assertTrue(isPentagonal(1));
+		assertFalse(isPentagonal(2));
+		assertFalse(isPentagonal(3));
+		assertFalse(isPentagonal(4));
+		assertTrue(isPentagonal(5));
+		assertTrue(isPentagonal(40755));
+		assertFalse(isPentagonal(40756));
 	}
 	
 	@Test
