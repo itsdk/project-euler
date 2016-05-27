@@ -149,6 +149,27 @@ public class LibraryTest extends Library{
 		assertEquals(intPow(9, 5), 59049);
 	}
 	
+	@Test
+	public void isNSquareTest() {
+		assertFalse(isNSquare(-1, 2));
+		assertTrue(isNSquare(0, 2));  // 2*(0^2) == 0
+		assertFalse(isNSquare(1, 2));
+		assertTrue(isNSquare(2, 2));  // 2*(1^2) == 2
+		assertFalse(isNSquare(3, 2));
+		assertFalse(isNSquare(4, 2));
+		assertTrue(isNSquare(8, 2));  // 2*(2^2) == 8
+		assertTrue(isNSquare(18, 2)); // 2*(3^2) == 18
+		
+		assertFalse(isNSquare(-1, 3));
+		assertTrue(isNSquare(0, 3));  // 3*(0^2) == 0
+		assertFalse(isNSquare(1, 3)); 
+		assertFalse(isNSquare(2, 3)); 
+		assertTrue(isNSquare(3, 3));  // 3*(1^2) == 3
+		assertFalse(isNSquare(4, 3));
+		assertTrue(isNSquare(12, 3)); // 3*(2^2) == 12
+		assertTrue(isNSquare(27, 3)); // 3*(3^2) == 27
+	}
+	
 	@Test 
 	public void isPalindromeTest() { 
 		assertTrue(isPalindrome("racecar"));  // odd number of characters

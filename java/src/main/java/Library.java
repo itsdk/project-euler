@@ -273,6 +273,16 @@ public abstract class Library {
 	}
 	
 	/*
+	 * Inverse function checks if: 
+	 * x == n*i*i, where i is an integer > 0
+	 */
+	protected boolean isNSquare(int x, int n) {
+		double test = Math.sqrt(Integer.valueOf(x).doubleValue()/n);
+		if (test == (int)test) return true;
+		return false;
+	}
+	
+	/*
 	 * checks if a String is a palindrome or not
 	 * (reads the same forwards and backwards)
 	 */
