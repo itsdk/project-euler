@@ -29,7 +29,6 @@ public class P043 extends Problem {
 	@Override
 	public String solve() {
 		long sum = 0; // number to return
-		// TODO : use permutations(9876543210)
 		ArrayList<Long> perms = new ArrayList<Long>(factorial(10).intValue());
 		permutations(10, new int[]{0,1,2,3,4,5,6,7,8,9}, perms);
 		for (Long p : perms) {

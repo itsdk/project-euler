@@ -21,33 +21,30 @@ public class P044 extends Problem {
 	public String solve() {
 		int d = Integer.MAX_VALUE; // D from problem, D = |Pk - Pj| minimized
 		
-		int maxN = 1;                   // index of maximum pentagonal number found so far
-		int maxP = getPentagonal(maxN); // maximum pentagonal number found so far
-		
+		/*
+		 * Create set of pentagonals.
+		 * 3000 is a complete guess as to the number of pentagonals needed:
+		 */
 		HashSet<Integer> pentagonals = new HashSet<Integer>();
-		pentagonals.add(maxP);
-		
-		for (int m=1; m<2396; m++) {
-			maxP = getPentagonal(m);
-			pentagonals.add(maxP);
-			maxN = m;		
+		for (int i=1; i<3000; i++) { 
+			pentagonals.add(getPentagonal(i));
 		}
 		
 		for (Integer j : pentagonals) {
 			for (Integer k : pentagonals) {
 				if (!j.equals(k)) {
+					/*
+					 * Pk + Pj = pentagonal number, and
+					 * Pk - Pj = pentagonal number
+					 */
 					if (pentagonals.contains(j.intValue()+k.intValue()) &&
 							pentagonals.contains(k.intValue()-j.intValue())) {
 						int newD = Math.abs(k.intValue()-j.intValue());
-						if (newD < d) {
-							d = newD;
-							System.out.println("j = " + j + "\t : k = " + k + "\t : j+k = " + (j+k));
-						}
+						if (newD < d) d = newD; // smaller pair found
 					}
 				}
 			}
 		}
-		
 		
 		return Integer.toString(d);
 	}
