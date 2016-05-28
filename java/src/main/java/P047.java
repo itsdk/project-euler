@@ -32,7 +32,10 @@ public class P047 extends Problem {
 				for (Long f : factors) {
 					if (isPrime(f)) primeFactors.add(f);
 				}
-				if (primeFactors.size() < 4) fourConsecutive = false;
+				if (primeFactors.size() < 4) {
+					fourConsecutive = false;
+					break;
+				}
 			}
 			if (fourConsecutive) break;
 			count++;
