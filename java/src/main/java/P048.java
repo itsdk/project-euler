@@ -21,14 +21,7 @@ public class P048 extends Problem {
 		}
 		
 		// get the last ten digits:
-		long lastTen = 0;
-		int count = 0;
-		while (count < 10) {
-			int digit = n.mod(BigInteger.TEN).intValue(); // get last digit
-			n = n.divide(BigInteger.TEN);                 // remove last digit
-			lastTen += (long)(Math.pow(10, count)*digit);
-			count++;
-		}
+		long lastTen = n.mod(new BigInteger("10000000000")).longValue();
 		
 		return Long.toString(lastTen);
 	}
