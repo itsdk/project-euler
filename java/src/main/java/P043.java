@@ -29,28 +29,32 @@ public class P043 extends Problem {
 	@Override
 	public String solve() {
 		long sum = 0; // number to return
+		
+		// get permutations of the numbers 0,1,2,3,4,5,6,7,8,9
 		ArrayList<Long> perms = new ArrayList<Long>(factorial(10).intValue());
 		permutations(10, new int[]{0,1,2,3,4,5,6,7,8,9}, perms);
+		
 		for (Long p : perms) {
 			long longP = p.longValue();
 			
-			long temp = longP;
-			int numDigits = 0;
-			while (temp > 0) { // find number of digits
-				temp /= 10;
-				numDigits++;
-			}
+			/*
+			 * If number of digits is 9, then the permutation started with a 0.
+			 * So start index will be 0, otherwise 1
+			 */
+			int start = (numberOfDigits(longP) == 9) ? 0 : 1;
 			
-			int start = (numDigits == 9) ? 0 : 1;
+			// check if each divisibility property is true, or false:
 			boolean divisible = true;
 			for (int i=0; i<DIVISIBLE_BY.length; i++) {
 				if (subNum(longP, start, 3) % DIVISIBLE_BY[i] != 0) {
 					divisible = false;
+					break;
 				}
 				start++;
 			}
 			if (divisible) sum += longP;
 		}
+		
 		return Long.toString(sum);
 	}
 

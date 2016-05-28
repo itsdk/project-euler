@@ -268,6 +268,16 @@ public class LibraryTest extends Library{
 	}
 	
 	@Test
+	public void numberOfDigitsTest() {
+		assertEquals(numberOfDigits(-1L), 0); // negative numbers not supported
+		assertEquals(numberOfDigits(0L), 0);
+		assertEquals(numberOfDigits(5L), 1);
+		assertEquals(numberOfDigits(42L), 2);
+		assertEquals(numberOfDigits(777L), 3);
+		assertEquals(numberOfDigits(4096L), 4);
+	}
+	
+	@Test
 	public void numberToWordsTest() {
 		assertEquals(numberToWords(1001), ""); // >1000 not implemented
 		assertEquals(numberToWords(-1), "negativeone");

@@ -421,6 +421,18 @@ public abstract class Library {
 	}
 	
 	/*
+	 * get the number of digits in positive integer n
+	 */
+	protected int numberOfDigits(long n) {
+		int count = 0;
+		while (n > 0) {
+			n /= 10;
+			count++;
+		}
+		return count;
+	}
+	
+	/*
 	 * estimate how many fibonacci numbers <= value, using Binet's formula
 	 */
 	protected double numberOfFibonaccis(double value) {
