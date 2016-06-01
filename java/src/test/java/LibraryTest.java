@@ -304,6 +304,19 @@ public class LibraryTest extends Library{
 	}
 	
 	@Test
+	public void replaceDigitTest() {
+		assertEquals(replaceDigit(0,22,4), 42);
+		assertEquals(replaceDigit(3,22,4), 22); // index out of range
+		assertEquals(replaceDigit(-1,22,4), 22); // index out of range
+		assertEquals(replaceDigit(0,22,11), 22); // digit out of range
+		assertEquals(replaceDigit(0,22,-1), 22); // digit out of range
+
+		assertEquals(replaceDigit(0,12345,9), 92345);
+		assertEquals(replaceDigit(1,12345,9), 19345);
+		assertEquals(replaceDigit(4,12345,9), 12349);
+	}
+	
+	@Test
 	public void squareOfSumTest() {
 		assertEquals(squareOfSum(1,10), 3025); // (1 + 2 + ... + 10)^2 = 55^2 = 3025
 	}

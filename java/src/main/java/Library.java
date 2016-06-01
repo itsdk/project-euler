@@ -519,6 +519,26 @@ public abstract class Library {
 	}
 	
 	/*
+	 * replaces the ith digit of the number n with digit d
+	 */
+	protected int replaceDigit(int i, int n, int d) {
+		if ((i < 0) || (d < 0) || (d > 9)) return n; // index out of range, or not digit
+		int oldN = n;
+		ArrayList<Integer> digits = new ArrayList<Integer>();		
+		while (n > 0) { 
+			digits.add(n % 10); // get last digit
+			n /= 10;
+		}
+		if (i > digits.size()-1) return oldN; // index is out of range
+		digits.set(digits.size()-i-1, Integer.valueOf(d)); // replace digit
+		
+		for (int digit=0; digit<digits.size(); digit++) {
+			n += digits.get(digit)*intPow(10, digit);
+		}	
+		return n;
+	}
+	
+	/*
 	 * square of the sum of the numbers [a,b]
 	 * eg: [(a) + (a+1) + (a+2) + ... + (b-2) + (b-1) + (b)]^2
 	 */
