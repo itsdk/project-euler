@@ -26,23 +26,69 @@ public class P051 extends Problem {
 		 * that we are replacing must be 0, 1, or 2 in the smallest member.
 		 */
 		int smallest = 0;
+		boolean familyFound = false;
 		
 		/*
 		 * Number has to be larger than 56003 (given by the problem as the smallest of the
 		 * first 7 prime family), so we are assuming it will be 5 or 6 digits long.
+		 * I tried 5 digits, and didn't find an answer, so we will try 6 digits:
 		 */
 		ArrayList<Integer> primes = getPrimesBelow(1_000_000);
 		int index = 0;
 		for (int i=0; i<primes.size(); i++) {
-			if (primes.get(i).intValue() > 56003) { 
+			if (primes.get(i).intValue() > 99999) { 
 				index = i;
 				break;
 			}
 		}
 		primes.subList(0, index).clear();
 		
-		int digit = 0; // digit to replace with
-		
+		for (int i=3; i<=6; i++) { // should start at 1
+			/*
+			int[] p6 = new int[6];
+			for (int j=0; j<i; j++) {
+				p6[j] = 1;				
+			}
+			*/
+			
+			ArrayList<Long> perms6 = new ArrayList<Long>();
+			//permutations(6, p6, perms6);
+			perms6.add(Long.valueOf(101010L)); // the correct pattern, but should try all
+			
+			for (Long l : perms6) {
+				for (Integer prime : primes) {
+					int familySize = 0;
+					int pr = prime.intValue();
+					boolean smallestFound = false;
+					// digit to replace with:
+					for (int d=1; d<=9; d++) { // final solution should include 0
+						int p = l.intValue();
+						int digitIndex = 5;
+						while (p > 0) {
+							if (p % 10 == 1) {
+								pr = replaceDigit(digitIndex, pr, d);
+							}
+							p /= 10;
+							digitIndex--;
+						}
+						if (primes.contains(Integer.valueOf(pr))) {
+							if (!smallestFound) {
+								smallestFound = true;
+								smallest = pr;
+							}
+							familySize++;
+						}
+						if ((d>=2) && (!smallestFound)) break;
+					}	
+					if (familySize >= 8) {
+						familyFound = true;
+						break;
+					}
+				}
+				if (familyFound) break;
+			}
+			if (familyFound) break;
+		}
 		
 		
 		return Integer.toString(smallest);
