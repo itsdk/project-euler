@@ -164,6 +164,21 @@ public abstract class Library {
 	}
 	
 	/*
+	 * Get the unique digits of a number.
+	 * Repeated digits are ignored.
+	 * eg: getDigits(4242) = [2,4]
+	 */
+	protected TreeSet<Integer> getDigitsUnique(long n) {
+		TreeSet<Integer> digits = new TreeSet<Integer>();
+		while (n > 0) {
+			int digit = (int)(n % 10);
+			digits.add(Integer.valueOf(digit));
+			n /= 10;
+		}
+		if (digits.isEmpty()) digits.add(Integer.valueOf(0)); // add 0 if n=0
+		return digits;
+	}
+	/*
 	 * get the factors of a number
 	 */
 	protected TreeSet<Long> getFactors(long n) {

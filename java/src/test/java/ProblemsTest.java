@@ -372,7 +372,7 @@ public class ProblemsTest {
 	@Test
 	public void testP052() {
 		p = new P052();
-		//assertEquals(p.solve(), "");
+		assertEquals(p.solve(), "142857");
 		p.time();
 	}
 	

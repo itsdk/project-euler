@@ -7,6 +7,7 @@ package test.java;
 import static org.junit.Assert.*;
 import org.junit.Test;
 import java.util.Arrays;
+import java.util.TreeSet;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import main.java.Library;
@@ -93,6 +94,13 @@ public class LibraryTest extends Library{
 	@Test
 	public void gcdTest() {
 		assertEquals(gcd(8,12), 4); // 4 is greatest number that divides both 8 and 12 with no remainder
+	}
+	
+	@Test
+	public void getDigitsUniqueTest() {
+		assertEquals(getDigitsUnique(0), new TreeSet<Integer>(Arrays.asList(0)));
+		assertEquals(getDigitsUnique(12345), new TreeSet<Integer>(Arrays.asList(1,2,3,4,5)));
+		assertEquals(getDigitsUnique(4242), new TreeSet<Integer>(Arrays.asList(2,4)));
 	}
 	
 	@Test
