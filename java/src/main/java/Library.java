@@ -178,6 +178,7 @@ public abstract class Library {
 		if (digits.isEmpty()) digits.add(Integer.valueOf(0)); // add 0 if n=0
 		return digits;
 	}
+	
 	/*
 	 * get the factors of a number
 	 */

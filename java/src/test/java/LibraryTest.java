@@ -21,6 +21,7 @@ public class LibraryTest extends Library{
 	
 	@Test
 	public void binomialCoefficientTest() {
+		assertEquals(binomialCoefficient(5,3), 10L); 
 		// 8th row of Pascal's Triangle:
 		assertEquals(binomialCoefficient(8,0), 1L); 
 		assertEquals(binomialCoefficient(8,1), 8L); 
