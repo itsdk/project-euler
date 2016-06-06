@@ -383,4 +383,11 @@ public class ProblemsTest {
 		p.time();
 	}
 	
+	@Test
+	public void testP054() {
+		p = new P054();
+		//assertEquals(p.solve(), "");
+		p.time();
+	}
+	
 }
