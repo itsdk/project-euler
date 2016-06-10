@@ -49,12 +49,33 @@ package main.java;
  * How many hands does Player 1 win?
  */
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
+
 public class P054 extends Problem {
 
 	@Override
 	public String solve() {
-		// TODO Auto-generated method stub
-		return null;
+		int player1wins = 0; // answer to return, number of wins for player 1
+
+		String path = new File("../res/p054_poker.txt").getAbsolutePath();
+		String file = "";
+		try {
+			file = readFile(path, StandardCharsets.UTF_8);
+		} catch (IOException e) {
+			return "ERROR: could not read file: " + e.getMessage();
+		}
+		
+		String hands[] = file.split("\\r?\\n");	// array of hands
+		for (String hand : hands) {
+			String[] p1 = hand.substring(0, hand.length()/2).split("\\s+"); // player 1's cards
+			String[] p2 = hand.substring(hand.length()/2+1).split("\\s+"); // player 2's cards
+		
+		}
+
+		return Integer.toString(player1wins);
 	}
 
 }
